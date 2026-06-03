@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-/* Google Fonts Cdn is added in client/index.html: Fraunces and Plus Jakarta Sans */
+/* Google Fonts Cdn is added in client/index.html: Lora and Source Sans 3 */
 
 @custom-variant dark (&:is(.dark *));
 
@@ -36,41 +36,40 @@
   --color-chart-5: var(--chart-5);
   
   /* Font Family Overrides */
-  --font-serif: "Fraunces", Georgia, serif;
-  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-serif: "Lora", Georgia, serif;
+  --font-sans: "Source Sans 3", "Source Sans Pro", system-ui, sans-serif;
 }
 
 :root {
-  /* Editorial Forest Green Palette */
-  --primary: oklch(0.25 0.04 160); /* Deep Forest Green */
-  --primary-foreground: oklch(0.98 0.01 75); /* Soft Cream */
+  --primary: #1e352f;
+  --primary-foreground: #ffffff;
   
-  --background: oklch(0.98 0.01 75); /* Warm Alabaster/Cream */
-  --foreground: oklch(0.15 0.01 160); /* Deep Charcoal Green */
+  --background: #f7f2ec;
+  --foreground: #1f2d29;
   
-  --card: oklch(1 0 0); /* Pure White for high-contrast cards */
-  --card-foreground: oklch(0.15 0.01 160);
+  --card: #ffffff;
+  --card-foreground: #1f2d29;
   
-  --popover: oklch(0.98 0.01 75);
-  --popover-foreground: oklch(0.15 0.01 160);
+  --popover: #ffffff;
+  --popover-foreground: #1f2d29;
   
-  --secondary: oklch(0.92 0.01 160); /* Muted Light Green/Beige */
-  --secondary-foreground: oklch(0.25 0.04 160);
+  --secondary: #596f66;
+  --secondary-foreground: #34455e;
   
-  --muted: oklch(0.94 0.01 160);
-  --muted-foreground: oklch(0.4 0.02 160);
+  --muted: #efe7dd;
+  --muted-foreground: #596f66;
   
-  --accent: oklch(0.8 0.18 145); /* Mint Accent */
-  --accent-foreground: oklch(0.15 0.01 160);
+  --accent: #2d6759;
+  --accent-foreground: #ffffff;
   
   --destructive: oklch(0.55 0.18 25);
   --destructive-foreground: oklch(0.98 0 0);
   
-  --border: oklch(0.25 0.04 160 / 8%); /* Very subtle thin border */
-  --input: oklch(0.25 0.04 160 / 8%);
-  --ring: oklch(0.25 0.04 160 / 20%);
+  --border: rgb(30 53 47 / 10%);
+  --input: rgb(30 53 47 / 12%);
+  --ring: rgb(45 103 89 / 30%);
   
-  --radius: 0.75rem;
+  --radius: 0.25rem;
 }
 
 .dark {
@@ -96,7 +95,7 @@
     @apply bg-background text-foreground font-sans antialiased selection:bg-accent/30 selection:text-foreground;
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif font-semibold tracking-tight text-primary;
+    @apply font-serif font-semibold tracking-normal text-primary;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
