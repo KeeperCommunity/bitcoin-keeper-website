@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Shield, Mail, Check, AlertTriangle, HelpCircle } from "lucide-react";
+import { Shield, Mail, Check, AlertTriangle, Coins, ShieldCheck, Wallet, Users, EyeOff, ConciergeBell } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
@@ -7,6 +7,19 @@ import { toast } from "sonner";
 export default function Private() {
   const [email, setEmail] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const privateAssets = {
+    hero: "/wp-content/uploads/2025/04/banner-image-1-1.png",
+    shape: "/wp-content/uploads/2025/04/object-2.png",
+    serviceVisuals: [
+      "/wp-content/uploads/2025/07/Group-1000004668-1.png",
+      "/wp-content/uploads/2025/07/Group-1000004687.png",
+      "/wp-content/uploads/2025/07/Group-1000004694.png",
+      "/wp-content/uploads/2025/07/Group-1000004699.png",
+      "/wp-content/uploads/2025/07/Group-1000004706.png",
+      "/wp-content/uploads/2025/07/Keeper-kit-Iamge-2.png",
+    ],
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -18,6 +31,8 @@ export default function Private() {
   const services = [
     {
       title: "Bitcoin and USDT Sourcing",
+      icon: Coins,
+      image: privateAssets.serviceVisuals[0],
       points: [
         {
           title: "Access to Trusted Channels",
@@ -35,6 +50,8 @@ export default function Private() {
     },
     {
       title: "Secure Storage Consulting",
+      icon: ShieldCheck,
+      image: privateAssets.serviceVisuals[1],
       points: [
         {
           title: "Multi-layered Wallet Setup",
@@ -53,6 +70,8 @@ export default function Private() {
     },
     {
       title: "Optimal Usage Directions",
+      icon: Wallet,
+      image: privateAssets.serviceVisuals[2],
       points: [
         {
           title: "Structuring Your Bitcoin Usage",
@@ -70,6 +89,8 @@ export default function Private() {
     },
     {
       title: "Inheritance Planning Support",
+      icon: Users,
+      image: privateAssets.serviceVisuals[3],
       points: [
         {
           title: "Bespoke Inheritance Frameworks",
@@ -88,6 +109,8 @@ export default function Private() {
     },
     {
       title: "Privacy Focused Approach",
+      icon: EyeOff,
+      image: privateAssets.serviceVisuals[4],
       points: [
         {
           title: "Bitcoin Privacy Fundamentals",
@@ -105,6 +128,8 @@ export default function Private() {
     },
     {
       title: "Premium Concierge Services",
+      icon: ConciergeBell,
+      image: privateAssets.serviceVisuals[5],
       points: [
         {
           title: "End-to-End Bitcoin Strategy & Execution",
@@ -124,123 +149,132 @@ export default function Private() {
   ];
 
   return (
-    <div className="bg-background">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden py-20 md:py-32 border-b border-primary/5">
+    <div className="bg-[#0e1413] text-[#f1efe8]">
+      <section className="relative overflow-hidden border-b border-[#3e524d]/40 bg-[radial-gradient(circle_at_20%_0%,#2b3a36_0%,#0e1413_60%)] py-20 md:py-28">
+        <img src={privateAssets.shape} alt="" className="pointer-events-none absolute -right-20 -top-20 w-[340px] opacity-20" />
         <div className="container max-w-6xl">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left Content */}
-            <div className="lg:col-span-7 space-y-8">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/5 border border-primary/10 text-primary font-semibold text-xs tracking-wider uppercase">
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
+            <div className="space-y-8 lg:col-span-7">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#A58969]/45 bg-[#A58969]/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#dcccb4]">
                 <Shield className="h-3.5 w-3.5" /> Keeper Private
               </div>
-              <h1 className="font-serif text-4xl md:text-6xl font-bold tracking-tight text-primary leading-tight">
-                Tailored Support & <br />
-                <span className="italic font-normal text-primary/80">Enhanced Security</span> <br />
+              <h1 className="font-serif text-4xl font-semibold leading-[1.1] text-[#f6f3ea] md:text-6xl">
+                Tailored Support and
+                <br />
+                Enhanced Security
+                <br />
                 for Your Bitcoin
               </h1>
-              <p className="font-sans text-lg text-muted-foreground leading-relaxed max-w-xl">
-                End-to-end, white-glove Bitcoin services—from acquisition to estate planning. Delivered with absolute expertise, nuance, and discretion.
+              <p className="max-w-xl text-lg leading-relaxed text-[#d6d1c4]">
+                End-to-end, white-glove Bitcoin services—from acquisition to estate planning. Delivered with expertise, nuance, and discretion.
               </p>
 
-              {/* Email Form */}
               {!isSubmitted ? (
-                <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md">
+                <form onSubmit={handleSubmit} className="flex max-w-md flex-col gap-3 sm:flex-row">
                   <div className="relative flex-grow">
-                    <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                    <Mail className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[#b9b2a2]" />
                     <Input
                       type="email"
-                      placeholder="Enter Your Email"
+                      placeholder="Email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       required
-                      className="pl-10 h-12 font-sans border-primary/10 bg-card"
+                      className="h-12 border-[#3e524d] bg-[#16201e] pl-10 text-[#f6f3ea] placeholder:text-[#8f968f]"
                     />
                   </div>
-                  <Button type="submit" className="h-12 px-6 font-semibold bg-primary text-primary-foreground hover:bg-primary/90">
+                  <Button type="submit" className="h-12 bg-[#A58969] px-6 font-semibold text-[#111614] hover:bg-[#b59c7f]">
                     Submit
                   </Button>
                 </form>
               ) : (
-                <div className="flex items-center gap-3 p-4 rounded-xl bg-accent/10 border border-accent/20 text-primary max-w-md">
-                  <Check className="h-5 w-5 text-accent shrink-0" />
-                  <span className="font-sans text-sm font-semibold">
-                    Request received. Our team will contact you soon.
-                  </span>
+                <div className="flex max-w-md items-center gap-3 rounded-xl border border-[#A58969]/35 bg-[#A58969]/15 p-4 text-[#efe4d3]">
+                  <Check className="h-5 w-5 shrink-0 text-[#d8bf9d]" />
+                  <span className="text-sm font-semibold">Request received. Our team will contact you soon.</span>
                 </div>
               )}
 
-              <p className="font-sans text-xs text-muted-foreground/80 italic max-w-md">
+              <p className="max-w-md text-xs italic text-[#a8a496]">
                 *Please note: We do not provide financial or investment advice. Bitcoin is not regulated by the FCA.
               </p>
             </div>
 
-            {/* Right Image */}
-            <div className="lg:col-span-5 relative">
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent rounded-3xl -rotate-3 scale-105" />
+            <div className="relative lg:col-span-5">
+              <div className="absolute inset-0 -rotate-2 rounded-[28px] bg-[#A58969]/20" />
               <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663560985202/22PprtjboLFbJBcYYDxmC8/keeper-private-hero-jeAtZD9d2wVohr98JLDvyd.webp"
-                alt="Keeper Private Advisor"
-                className="relative rounded-3xl shadow-[0_20px_50px_rgba(30,53,47,0.1)] object-cover w-full aspect-[4/3] lg:aspect-auto"
+                src={privateAssets.hero}
+                alt="Keeper Private"
+                className="relative w-full rounded-[28px] border border-[#3e524d]/50 bg-[#141c1a] object-cover p-2 shadow-[0_30px_70px_rgba(0,0,0,0.45)]"
               />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Service Highlights Header */}
-      <section className="py-16 md:py-24 bg-primary/5">
-        <div className="container max-w-4xl text-center space-y-6">
-          <h2 className="font-serif text-3xl md:text-4xl font-bold text-primary">Service Highlights</h2>
-          <p className="font-sans text-lg text-muted-foreground leading-relaxed">
+      <section className="border-b border-[#3e524d]/40 bg-[#101816] py-14 md:py-18">
+        <div className="container max-w-5xl space-y-6 text-center">
+          <h2 className="font-serif text-3xl font-semibold text-[#f4f1e8] md:text-4xl">Service Highlights</h2>
+          <p className="text-lg leading-relaxed text-[#c8c1b0]">
             Designed for high-net-worth individuals and family offices, Keeper Private enables discreet Bitcoin acquisition and long-term custody—anchored in privacy, legal integrity, and regulatory foresight.
           </p>
-        </div>
-      </section>
 
-      {/* Services Grid */}
-      <section className="container py-20 md:py-32">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-          {services.map((service) => (
-            <div
-              key={service.title}
-              className="flex flex-col justify-between p-8 md:p-10 rounded-3xl bg-card border border-primary/5 shadow-[0_15px_40px_rgba(30,53,47,0.02)] hover:shadow-[0_25px_60px_rgba(30,53,47,0.06)] transition-all duration-300"
-            >
-              <div className="space-y-8">
-                <h3 className="font-serif text-2xl font-bold text-primary border-b border-primary/5 pb-4">
-                  {service.title}
-                </h3>
-                <div className="space-y-6">
-                  {service.points.map((pt) => (
-                    <div key={pt.title} className="space-y-2">
-                      <h4 className="font-serif text-base font-bold text-primary flex items-center gap-2">
-                        <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                        {pt.title}
-                      </h4>
-                      <p className="font-sans text-sm text-muted-foreground leading-relaxed pl-3.5">
-                        {pt.desc}
-                      </p>
-                    </div>
-                  ))}
+          <div className="grid grid-cols-1 gap-3 pt-2 sm:grid-cols-2 lg:grid-cols-3">
+            {services.map((service) => (
+              <div
+                key={`${service.title}-highlight`}
+                className="rounded-[10px] border border-[#846E55]/70 bg-[#141d1b] px-4 py-3 text-center"
+              >
+                <div className="mb-2 inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#A58969]/20 text-[#c8b064]">
+                  <service.icon className="h-4.5 w-4.5" />
                 </div>
+                <p className="font-sans text-[16px] leading-[1.25] text-[#f0e8d7]">{service.title}</p>
               </div>
-              {service.note && (
-                <p className="font-sans text-xs text-muted-foreground/70 italic mt-8 pt-4 border-t border-primary/5">
-                  {service.note}
-                </p>
-              )}
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Risk Disclosure */}
-      <section className="container max-w-4xl pb-20 md:pb-32">
-        <div className="p-6 md:p-8 rounded-2xl bg-destructive/5 border border-destructive/15 flex items-start gap-4">
-          <AlertTriangle className="h-6 w-6 text-destructive shrink-0 mt-0.5" />
+      <section className="container space-y-14 py-16 md:py-24">
+        {services.map((service, idx) => (
+          <article
+            key={service.title}
+            className="grid grid-cols-1 items-stretch gap-8 rounded-[22px] border border-[#3e524d]/45 bg-[#141d1b] p-6 md:p-8 lg:grid-cols-[1fr_1fr]"
+          >
+            <div className={`${idx % 2 === 1 ? "lg:order-2" : ""} flex items-center justify-center rounded-[16px] border border-[#3e524d]/35 bg-[#0f1514] p-4 md:p-6`}>
+              <img src={service.image} alt={service.title} className="max-h-[340px] w-full object-contain" />
+            </div>
+
+            <div className={`${idx % 2 === 1 ? "lg:order-1" : ""} space-y-6`}>
+              <h3 className="border-b border-[#3e524d]/45 pb-3 font-serif text-[30px] font-semibold leading-[1.2] text-[#f1eee4]">
+                {service.title}
+              </h3>
+              <div className="space-y-5">
+                {service.points.map((pt) => (
+                  <div key={pt.title} className="space-y-2">
+                    <h4 className="flex items-center gap-2 font-serif text-[17px] font-semibold text-[#e6d8c1]">
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#A58969]" />
+                      {pt.title}
+                    </h4>
+                    <p className="pl-3.5 text-[14px] leading-relaxed text-[#b8b1a2]">{pt.desc}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="flex items-center gap-4">
+                <Button className="h-10 rounded-[6px] bg-[#A58969] px-5 text-[13px] font-semibold uppercase tracking-[0.8px] text-[#111614] hover:bg-[#b59c7f]">
+                  Learn More
+                </Button>
+                {service.note && <p className="text-xs italic text-[#9f9a8a]">{service.note}</p>}
+              </div>
+            </div>
+          </article>
+        ))}
+      </section>
+
+      <section className="container max-w-5xl pb-20 md:pb-28">
+        <div className="flex items-start gap-4 rounded-2xl border border-[#b71c1c]/35 bg-[#2a1515] p-6 md:p-8">
+          <AlertTriangle className="mt-0.5 h-6 w-6 shrink-0 text-[#f08b8b]" />
           <div className="space-y-2">
-            <h4 className="font-serif text-base font-bold text-destructive">Risk Disclosure</h4>
-            <p className="font-sans text-xs md:text-sm text-muted-foreground leading-relaxed">
+            <h4 className="font-serif text-lg font-semibold text-[#ffd3d3]">Risk Disclosure</h4>
+            <p className="text-sm leading-relaxed text-[#e6bbbb]">
               Bitcoin and other digital assets are not regulated in the UK. They are high-risk and may lose value. Keeper Private does not offer financial advice and is not registered with the Financial Conduct Authority. Your capital is at risk. No FSCS or FOS protections apply.
             </p>
           </div>

@@ -2,7 +2,7 @@ import { Link, useLocation } from "wouter";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
-const logoUrl = "https://bitcoinkeeper.app/wp-content/uploads/2025/01/Vector.svg";
+const logoUrl = "/wp-content/uploads/2025/01/Vector.svg";
 
 export default function Header() {
   const [location] = useLocation();

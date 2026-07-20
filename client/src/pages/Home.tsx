@@ -1,7 +1,7 @@
 import { ArrowRight, Check, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const WP = "https://bitcoinkeeper.app/wp-content/uploads";
+const WP = "/wp-content/uploads";
 
 const assets = {
   logo: `${WP}/2025/04/500x500.png`,
@@ -166,7 +166,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-white py-20 md:py-28">
+      <section className="bg-background py-20 md:py-28">
         <div className="container grid max-w-6xl grid-cols-1 items-center gap-12 md:grid-cols-[35%_65%]">
           <div>
             <SectionHeading title="Built for long-term self-custody" />
@@ -186,11 +186,11 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <img src={assets.selfCustody} alt="Built for long-term self-custody" className="mx-auto w-full max-w-[820px]" />
+          <img src="/wp-content/uploads/2025/07/Expanse-Filters-1-1-1536x1479.png" alt="Built for long-term self-custody" className="mx-auto w-full max-w-[820px]" />
         </div>
       </section>
 
-      <section className="py-20 md:py-28">
+      <section className="bg-white py-20 md:py-28">
         <div className="container grid max-w-6xl grid-cols-1 items-center gap-12 md:grid-cols-[35%_65%]">
           <div>
             <SectionHeading
@@ -210,7 +210,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 md:py-24">
+      <section className="bg-background py-20 md:py-24">
         <div className="container max-w-6xl">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {walletFeatures.map((feature, index) => (
@@ -272,7 +272,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 md:py-24">
+      <section className="bg-background py-20 md:py-24">
         <div className="container max-w-6xl">
           <SectionHeading
             centered
@@ -306,14 +306,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-white py-10">
+      <section className="bg-[#2d6759] py-10">
         <div className="container grid max-w-6xl grid-cols-1 items-center gap-6 md:grid-cols-[60%_40%]">
           <div>
-            <h2 className="font-serif text-[30px] font-semibold text-primary">Keeper Desktop App</h2>
-            <p className="mt-3 text-center text-[18px] text-secondary-foreground/80 md:text-left">Free. Open-source. No signups. No subscriptions</p>
+            <h2 className="font-serif text-[30px] font-semibold text-white">Keeper Desktop App</h2>
+            <p className="mt-3 text-center text-[18px] text-white/85 md:text-left">Free. Open-source. No signups. No subscriptions</p>
           </div>
           <div className="flex justify-center md:justify-end">
-            <Button asChild className="h-auto rounded-[4px] bg-[#2d6759] px-8 py-5 text-[17px] font-semibold text-white hover:bg-[#245348]">
+            <Button asChild className="h-auto rounded-[4px] bg-[#f3efe3] px-8 py-5 text-[17px] font-semibold text-[#1f2d29] hover:bg-[#e9e2d2]">
               <a href="https://github.com/bithyve/keeper-desktop/releases/" target="_blank" rel="noopener noreferrer">
                 <Download className="h-4 w-4" /> Download the Desktop App
               </a>
@@ -322,7 +322,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-white py-20 md:py-24">
+      <section className="bg-background py-20 md:py-24">
         <div className="container max-w-6xl">
           <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-[60%_40%]">
             <div>
@@ -383,7 +383,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 md:py-24">
+      <section className="bg-white py-20 md:py-24">
         <div className="container max-w-6xl">
           <SectionHeading centered title="The Community Speaks" copy="The community loves us for our product philosophy and feature implementation prowess. You don’t have to take our word for it!" />
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
@@ -400,7 +400,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-white py-20 text-center md:py-24">
+      <section className="bg-background py-20 text-center md:py-24">
         <div className="container max-w-4xl">
           <h2 className="font-serif text-[35px] font-semibold text-primary md:text-[44px]">Free and community-supported</h2>
           <p className="mx-auto mt-5 max-w-2xl text-[18px] leading-[1.55] text-secondary-foreground/80">
@@ -450,7 +450,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 text-center md:py-24">
+      <section className="bg-background py-20 text-center md:py-24">
         <div className="container max-w-4xl">
           <img src={assets.logo} alt="" className="mx-auto mb-6 h-[84px] w-[84px]" />
           <h2 className="font-serif text-[35px] font-semibold text-primary md:text-[44px]">Download Bitcoin Keeper today</h2>
