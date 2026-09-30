@@ -22,6 +22,8 @@ Production output includes `<route>/index.html` for each public route, plus `404
 
 Editor, Manus runtime and debug plugins run only in the development server. Analytics is optional: set both `VITE_ANALYTICS_ENDPOINT` and `VITE_ANALYTICS_WEBSITE_ID` to include the existing Umami script. If either value is absent, the script is omitted rather than emitting unresolved placeholders.
 
+Ask Keeper at `/ask-keeper` combines the existing Relay chat with the crawlable self-custody guide. Use the two-word name in visible copy. `/ask` and the former `/learn` route permanently redirect to this page; keep guide section IDs stable so old fragment links still work. Only the combined page belongs in the sitemap.
+
 ## File Structure
 
 ```

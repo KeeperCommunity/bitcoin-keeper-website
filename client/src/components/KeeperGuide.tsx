@@ -87,13 +87,16 @@ const guideSections = [
 const linkClassName =
   "text-accent underline decoration-accent/40 underline-offset-4 hover:decoration-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent";
 
-export default function Learn() {
+export default function KeeperGuide() {
   return (
-    <article className="bg-background py-16 text-foreground md:py-24">
+    <article
+      id="guide"
+      className="scroll-mt-28 bg-background pt-16 text-foreground md:pt-20"
+    >
       <header className="container mb-12 max-w-4xl space-y-5 text-center md:mb-16">
-        <h1 className="font-serif text-[42px] font-semibold leading-[1.15] text-primary md:text-[64px]">
-          bitcoin self-custody with Keeper
-        </h1>
+        <h2 className="font-serif text-3xl font-semibold leading-[1.15] text-primary md:text-4xl">
+          Self-custody basics
+        </h2>
         <p className="mx-auto max-w-2xl text-[18px] leading-[1.55] text-secondary-foreground/80">
           A short guide to Bitcoin Keeper, multisig, signing devices and the
           backups you need to understand.
@@ -101,6 +104,9 @@ export default function Learn() {
         <p className="text-sm text-muted-foreground">
           Published <time dateTime="2026-09-30">30 September 2026</time>
         </p>
+        <a href="#ask-question" className={linkClassName}>
+          Ask a Question
+        </a>
       </header>
 
       <div className="container max-w-4xl space-y-10 md:space-y-12">
@@ -127,12 +133,12 @@ export default function Learn() {
             aria-labelledby={`${section.id}-title`}
             className="scroll-mt-28 space-y-5 rounded-2xl border border-primary/5 bg-card p-6 shadow-[0_10px_30px_rgba(30,53,47,0.02)] md:p-8"
           >
-            <h2
+            <h3
               id={`${section.id}-title`}
               className="font-serif text-2xl font-semibold leading-[1.3] text-primary md:text-3xl"
             >
               {section.title}
-            </h2>
+            </h3>
             {section.paragraphs.map(paragraph => (
               <p
                 key={paragraph}

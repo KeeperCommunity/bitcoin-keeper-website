@@ -8,12 +8,12 @@
       "handle": "filesystem"
     },
     {
-      "src": "/ask/?",
+      "src": "/(ask|learn)/?",
       "status": 308,
       "headers": { "Location": "/ask-keeper" }
     },
     {
-      "src": "/(features|team|private|learn|ask-keeper|privacy-policy|terms-of-service)/?",
+      "src": "/(features|team|private|ask-keeper|privacy-policy|terms-of-service)/?",
       "dest": "/$1/index.html"
     },
     {

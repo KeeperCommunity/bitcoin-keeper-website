@@ -19,15 +19,11 @@ export const PAGE_METADATA: Record<string, PageMetadataEntry> = {
     description:
       "Explore Bitcoin Keeper’s wallet types, hardware-wallet support, key management, coin control and tools for long-term bitcoin self-custody.",
   },
-  "/learn": {
-    title: "Learn bitcoin self-custody and multisig — Bitcoin Keeper",
-    description:
-      "Learn how Bitcoin Keeper approaches multisig, hardware wallets, backups, recovery and inheritance, with practical guides and product references.",
-  },
   "/ask-keeper": {
-    title: "AskKeeper: questions, feedback and feature ideas — Bitcoin Keeper",
+    title:
+      "Ask Keeper: self-custody help, questions and ideas — Bitcoin Keeper",
     description:
-      "AskKeeper uses Keeper’s existing AI help service to answer product questions, troubleshoot problems and draft bug reports or feature ideas.",
+      "Ask Keeper for help, report a problem or share an idea. Read the basics of bitcoin self-custody, multisig, hardware wallets, backups and recovery.",
   },
   "/team": {
     title: "People behind Keeper — Bitcoin Keeper",
@@ -41,7 +37,8 @@ export const PAGE_METADATA: Record<string, PageMetadataEntry> = {
   },
   "/privacy-policy": {
     title: "Privacy Policy — Bitcoin Keeper",
-    description: "Read Bitcoin Keeper’s privacy policy and information about data handling.",
+    description:
+      "Read Bitcoin Keeper’s privacy policy and information about data handling.",
   },
   "/terms-of-service": {
     title: "Terms of Service — Bitcoin Keeper",
@@ -68,19 +65,25 @@ export function getPageMetadata(path: string) {
   return {
     ...metadata,
     indexable,
-    canonical: indexable ? `${SITE_URL}${pathname === "/" ? "/" : pathname}` : undefined,
+    canonical: indexable
+      ? `${SITE_URL}${pathname === "/" ? "/" : pathname}`
+      : undefined,
     robots: indexable ? "index,follow" : "noindex,follow",
   };
 }
 
 export function escapeHtml(value: string): string {
-  return value.replace(/[&<>"']/g, character => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#39;",
-  })[character]!);
+  return value.replace(
+    /[&<>"']/g,
+    character =>
+      ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;",
+      })[character]!
+  );
 }
 
 export function renderMetadataTags(path: string): string {
@@ -99,17 +102,22 @@ export function renderMetadataTags(path: string): string {
     '<meta name="twitter:card" content="summary" />',
     `<meta name="twitter:title" content="${title}" />`,
     `<meta name="twitter:description" content="${description}" />`,
-    ...(metadata.canonical ? [
-      `<link rel="canonical" href="${escapeHtml(metadata.canonical)}" />`,
-      `<meta property="og:url" content="${escapeHtml(metadata.canonical)}" />`,
-    ] : []),
+    ...(metadata.canonical
+      ? [
+          `<link rel="canonical" href="${escapeHtml(metadata.canonical)}" />`,
+          `<meta property="og:url" content="${escapeHtml(metadata.canonical)}" />`,
+        ]
+      : []),
   ].join("\n    ");
 }
 
 export function renderSitemap(): string {
   const locations = Object.keys(PAGE_METADATA)
     .filter(path => getPageMetadata(path).indexable)
-    .map(path => `  <url><loc>${escapeHtml(getPageMetadata(path).canonical!)}</loc></url>`);
+    .map(
+      path =>
+        `  <url><loc>${escapeHtml(getPageMetadata(path).canonical!)}</loc></url>`
+    );
 
   // Do not invent lastmod dates: a build date is not a content review date.
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${locations.join("\n")}\n</urlset>\n`;

@@ -107,16 +107,10 @@ export default function Footer() {
                 Private
               </Link>
               <Link
-                href="/learn"
-                className="font-sans text-sm text-primary-foreground/70 transition-colors hover:text-accent"
-              >
-                Learn
-              </Link>
-              <Link
                 href="/ask-keeper"
                 className="font-sans text-sm text-primary-foreground/70 transition-colors hover:text-accent"
               >
-                AskKeeper
+                Ask Keeper
               </Link>
             </nav>
           </div>

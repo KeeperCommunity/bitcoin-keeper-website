@@ -50,10 +50,10 @@ export function browserAppId(): string {
 
 function friendlyError(status: number, code: string): string {
   if (status === 429)
-    return "AskKeeper’s chat limit has been reached. Please try again later or ask the community on Telegram.";
+    return "Ask Keeper’s chat limit has been reached. Please try again later or ask the community on Telegram.";
   if (/SENSITIVE|SEED|PRIVATE_KEY/i.test(code))
-    return "AskKeeper could not accept this message. Remove any wallet secrets and try rephrasing your question.";
-  return "AskKeeper is unavailable right now. Please try again or ask the community on Telegram.";
+    return "Ask Keeper could not accept this message. Remove any wallet secrets and try rephrasing your question.";
+  return "Ask Keeper is unavailable right now. Please try again or ask the community on Telegram.";
 }
 
 async function relayRequest(
@@ -83,13 +83,13 @@ async function relayRequest(
     if (error instanceof ReportSubmissionUncertainError) throw error;
     if (
       error instanceof Error &&
-      (error.message.startsWith("AskKeeper") ||
+      (error.message.startsWith("Ask Keeper") ||
         error.message.startsWith("This looks like"))
     )
       throw error;
     if (route === "submitHelpIssue") throw new ReportSubmissionUncertainError();
     throw new Error(
-      "Unable to reach AskKeeper. Check your connection and try again."
+      "Unable to reach Ask Keeper. Check your connection and try again."
     );
   } finally {
     clearTimeout(timeout);
@@ -148,7 +148,7 @@ export async function askKeeper(params: {
     },
   });
   if (typeof data.reply !== "string" || !data.reply.trim())
-    throw new Error("AskKeeper returned an empty answer. Please try again.");
+    throw new Error("Ask Keeper returned an empty answer. Please try again.");
   const sources = Array.isArray(data.sources)
     ? data.sources.filter(
         source =>
