@@ -8,8 +8,22 @@
       "handle": "filesystem"
     },
     {
-      "src": "/.*",
+      "src": "/ask/?",
+      "status": 308,
+      "headers": { "Location": "/ask-keeper" }
+    },
+    {
+      "src": "/(features|team|private|learn|ask-keeper|privacy-policy|terms-of-service)/?",
+      "dest": "/$1/index.html"
+    },
+    {
+      "src": "/",
       "dest": "/index.html"
+    },
+    {
+      "src": "/.*",
+      "dest": "/404.html",
+      "status": 404
     }
   ]
 }
