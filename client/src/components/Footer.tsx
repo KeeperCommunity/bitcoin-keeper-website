@@ -10,7 +10,7 @@ export default function Footer() {
     { name: "Linkedin", href: "https://www.linkedin.com/company/bithyve/", icon: Linkedin },
     { name: "Medium", href: "https://medium.com/bitbees", icon: BookOpen },
     { name: "Telegram", href: "https://t.me/bitcoinkeeper", icon: Send },
-    { name: "Github", href: "https://github.com/bithyve/", icon: Github },
+    { name: "Github", href: "https://github.com/KeeperCommunity/bitcoin-keeper", icon: Github },
   ];
 
   return (
