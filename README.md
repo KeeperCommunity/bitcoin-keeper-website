@@ -1,14 +1,26 @@
 # Web App Template (Static Frontend)
 
-Pure React 19 + Tailwind 4 template with shadcn/ui baked in. **Use this README as the checklist for shipping static experiences.**
+Static React 19 + Tailwind 4 site with shadcn/ui baked in. **Use this README as the checklist for shipping static experiences.**
 
 > **Note:** This template includes a minimal `shared/` and `server/` directory with placeholder types to support imported templates. These are just compatibility placeholders - web-static remains a true static-only template without API functionality.
 
 ---
 
 ## Stack Overview
-- Client-only routing powered by React + Wouter.
+- Routing powered by React + Wouter, with production pages prerendered at build time.
 - Design tokens live entirely in `client/src/index.css`—keep that file intact.
+
+## Production HTML and search metadata
+
+`pnpm run build` runs Vite, renders every public route from the existing React app, and generates `dist/public/sitemap.xml`. The HTML contains the page content and route-specific title, description, canonical and social metadata before JavaScript runs. The existing client entry makes the page interactive by replacing the static root.
+
+When adding a page, add its route in `client/src/App.tsx` and its metadata in `client/src/lib/page-metadata.ts`. Include `PageMetadata` in the app's routed layout so metadata updates during client navigation. The build fails if a metadata route renders the fallback page. The sitemap uses the same metadata map; do not maintain a separate sitemap or invent content-review dates from build times.
+
+Production output includes `<route>/index.html` for each public route, plus `404/index.html` and `404.html` with `noindex,follow` and no canonical. Configure the host to serve those route files and return HTTP 404 for unknown paths. Verify direct deep links and an unknown path after deployment; client-side fallback alone does not set an HTTP status.
+
+`client/public/robots.txt` allows public crawling, including OpenAI, Claude and Perplexity search crawlers. It does not add a separate model-training policy. Hosting/CDN bot rules must also permit legitimate search crawlers. Search visibility and citations are not guaranteed by crawler access.
+
+Editor, Manus runtime and debug plugins run only in the development server. Analytics is optional: set both `VITE_ANALYTICS_ENDPOINT` and `VITE_ANALYTICS_WEBSITE_ID` to include the existing Umami script. If either value is absent, the script is omitted rather than emitting unresolved placeholders.
 
 ## File Structure
 

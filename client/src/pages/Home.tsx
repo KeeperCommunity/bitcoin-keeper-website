@@ -1,5 +1,6 @@
-import { ArrowRight, Check, Download } from "lucide-react";
+import { ArrowRight, Check, Download, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "wouter";
 
 const WP = "/wp-content/uploads";
 
@@ -38,7 +39,6 @@ const assets = {
     `${WP}/2025/02/Other-Wallets.svg`,
   ],
   ben: `${WP}/2025/01/zKY_RrbA_400x400.jpg`,
-  conciergePhone: `${WP}/2025/07/417221187_d011ec06-7a7e-4c60-92df-39542af17bdc-1-1.png`,
   keyPhone: `${WP}/2025/07/Wallets-Landing-7.png`,
   keyIcons: [
     `${WP}/2025/01/User-friendly.png`,
@@ -52,7 +52,7 @@ const checkItems = [
   "UX/UI designed for an intuitive and effortless experience",
   "Cross-compatible with other bitcoin wallets",
   "Adaptable to suit your specific needs",
-  "Personalized Concierge services",
+  "AI-assisted help with AskKeeper",
 ];
 
 const walletFeatures = [
@@ -79,10 +79,10 @@ const specialVaults = [
   ["Emergency Key", "Made available as an additional key for special spending conditions"],
 ];
 
-const conciergeItems = [
-  ["Connect With Experts", "Get queries resolved from our in-house and partnered experts"],
-  ["Share Diagnostics", "Help your consultants help you better."],
-  ["Independent Relationships", "Get in touch with your consultants outside the app. Keeper doesn't gate keep!"],
+const askKeeperItems = [
+  ["Product questions", "Understand Keeper's wallets, keys, backups and features."],
+  ["Problems and ideas", "Troubleshoot issues and prepare bug reports or feature requests."],
+  ["Support resources", "Find relevant guides and reach the Keeper community when you need more help."],
 ];
 
 const keyItems = ["User- friendly", "No lock-ins", "Tools and Tips ", "Cost optimized"];
@@ -100,7 +100,7 @@ const faqs = [
   ["Who maintains Keeper now?", "Independent developers and contributors. You can view them on GitHub."],
   ["How can I support the project?", "You can tip the developer(s) inside the app."],
   ["Is Keeper regulated?", "Keeper is non-custodial and does not provide financial services."],
-  ["Do you store my keys?", "No. Keys remain on your devices."],
+  ["Do you store my keys?", "Your hardware and software signing keys stay with their signing devices. The optional Server Key is stored on a Keeper server and works as one key in a Multi-Key Wallet. Keeper cannot spend your bitcoin with this key alone."],
 ];
 
 function StoreBadges() {
@@ -327,13 +327,13 @@ export default function Home() {
           <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-[60%_40%]">
             <div>
               <SectionHeading
-                title="Concierge Services"
-                copy="From multikey wallet creation to inheritance planning, our experts ensure a seamless and secure experience tailored to your needs."
+                title="AskKeeper"
+                copy="Get help, report a problem or share an idea with the same AI-assisted help service available in the Keeper app."
               />
               <div className="space-y-5">
-                {conciergeItems.map(([title, desc], index) => (
+                {askKeeperItems.map(([title, desc]) => (
                   <div key={title} className="flex gap-5">
-                    <img src={[`${WP}/2025/02/Connect-With-Experts.svg`, `${WP}/2025/02/Share-Diagnostics-1.svg`, `${WP}/2025/02/Frame.svg`][index]} alt="" className="h-[58px] w-[58px]" />
+                    <MessageSquare aria-hidden="true" className="h-10 w-10 shrink-0 text-primary" />
                     <div>
                       <h3 className="font-serif text-[22px] font-semibold text-primary">{title}</h3>
                       <p className="mt-1 text-[16px] text-secondary-foreground/80">{desc}</p>
@@ -342,12 +342,15 @@ export default function Home() {
                 ))}
               </div>
               <Button asChild className="mt-9 h-auto rounded-[4px] bg-[#2d6759] px-8 py-5 text-[17px] font-semibold text-white hover:bg-[#245348]">
-                <a href="https://forms.gle/VtSPSWr5h3MiwSUr9" target="_blank" rel="noopener noreferrer">
-                  <ArrowRight className="h-4 w-4" /> Become a Consultant
-                </a>
+                <Link href="/ask-keeper"><ArrowRight className="h-4 w-4" /> AskKeeper</Link>
               </Button>
             </div>
-            <img src={assets.conciergePhone} alt="Keeper Concierge app screen" className="mx-auto max-h-[650px] w-auto" />
+            <div className="rounded-2xl border border-primary/10 bg-card p-8 text-center md:p-12">
+              <MessageSquare aria-hidden="true" className="mx-auto mb-6 h-16 w-16 text-primary" />
+              <h3 className="font-serif text-[28px] font-semibold text-primary">Ask Keeper anything</h3>
+              <p className="mt-5 text-[18px] leading-relaxed text-secondary-foreground/80">Questions about multisig, signing devices or backups? Start a conversation.</p>
+              <p className="mt-6 text-base font-semibold text-primary">Never share seed words or private keys.</p>
+            </div>
           </div>
 
           <div className="my-16 h-px bg-primary/10" />
@@ -440,11 +443,10 @@ export default function Home() {
             </div>
             <div className="rounded-[4px] bg-background p-8 text-center">
               <h3 className="font-serif text-[26px] font-semibold text-primary">Can't find an answer?</h3>
-              <p className="mt-4 text-[18px] text-secondary-foreground/80">Contact us via in-app Concierge</p>
-              <a href="https://help.bitcoinkeeper.app/" target="_blank" rel="noopener noreferrer" className="mt-6 block">
-                <img src={`${WP}/2025/02/Learn-More.png`} alt="Learn More" className="mx-auto h-[130px] w-[130px]" />
-                <span className="mt-3 block font-serif text-[22px] font-semibold text-primary">Learn More</span>
-              </a>
+              <p className="mt-4 text-[18px] text-secondary-foreground/80">AskKeeper helps with questions about Keeper, problems and ideas.</p>
+              <Button asChild className="mt-6 h-auto rounded-[4px] bg-[#2d6759] px-7 py-4 text-[17px] font-semibold text-white hover:bg-[#245348]">
+                <Link href="/ask-keeper">AskKeeper <ArrowRight className="h-4 w-4" /></Link>
+              </Button>
             </div>
           </div>
         </div>
