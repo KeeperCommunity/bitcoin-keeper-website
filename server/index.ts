@@ -18,7 +18,7 @@ async function startServer() {
 
   app.use(express.static(staticPath));
 
-  app.get("/ask", (_req, res) => {
+  app.get(["/ask", "/learn"], (_req, res) => {
     res.redirect(308, "/ask-keeper");
   });
 

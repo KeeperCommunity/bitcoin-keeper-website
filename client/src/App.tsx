@@ -1,7 +1,7 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
-import { Route, Switch } from "wouter";
+import { Redirect, Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
@@ -12,7 +12,6 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Learn from "./pages/Learn";
 import AskKeeper from "./pages/AskKeeper";
 import PageMetadata from "./components/PageMetadata";
 
@@ -27,7 +26,11 @@ function Router() {
           <Route path="/features" component={Features} />
           <Route path="/team" component={Team} />
           <Route path="/private" component={Private} />
-          <Route path="/learn" component={Learn} />
+          <Route path="/learn">
+            <Redirect
+              to={`/ask-keeper${typeof window === "undefined" ? "" : window.location.hash}`}
+            />
+          </Route>
           <Route path="/ask-keeper" component={AskKeeper} />
           <Route path="/privacy-policy" component={PrivacyPolicy} />
           <Route path="/terms-of-service" component={TermsOfService} />

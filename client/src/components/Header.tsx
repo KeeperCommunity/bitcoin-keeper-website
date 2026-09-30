@@ -13,8 +13,7 @@ export default function Header() {
     { name: "Features", href: "/features" },
     { name: "Team", href: "/team" },
     { name: "Private", href: "/private" },
-    { name: "Learn", href: "/learn" },
-    { name: "AskKeeper", href: "/ask-keeper" },
+    { name: "Ask Keeper", href: "/ask-keeper" },
   ];
 
   return (

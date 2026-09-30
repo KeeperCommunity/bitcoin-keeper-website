@@ -12,6 +12,7 @@ import {
 } from "@/lib/ask-keeper-client";
 import { detectSensitiveInput } from "@/lib/ask-keeper-sensitive";
 import { sanitizeHelpAiSources } from "@/lib/ask-keeper-links";
+import KeeperGuide from "@/components/KeeperGuide";
 
 type DisplayMessage = ChatMessage & { sources?: ChatReply["sources"] };
 type DraftState = {
@@ -41,6 +42,19 @@ export default function AskKeeper() {
   const [escalation, setEscalation] = useState<ChatReply["escalation"]>();
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const pending = useRef(false);
+
+  useEffect(() => {
+    // A legacy /learn redirect can render the guide after the browser's initial
+    // fragment scroll. Restore that section once the combined page is mounted.
+    if (!window.location.hash) return;
+    try {
+      document
+        .getElementById(decodeURIComponent(window.location.hash.slice(1)))
+        ?.scrollIntoView();
+    } catch {
+      /* An invalid fragment should not prevent chat from loading. */
+    }
+  }, []);
 
   useEffect(() => {
     setAppId(browserAppId());
@@ -142,7 +156,7 @@ export default function AskKeeper() {
       setError(
         failure instanceof Error
           ? failure.message
-          : "Unable to reach AskKeeper. Please try again."
+          : "Unable to reach Ask Keeper. Please try again."
       );
     } finally {
       pending.current = false;
@@ -206,10 +220,11 @@ export default function AskKeeper() {
         <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
           <div>
             <h1 className="font-serif text-4xl font-semibold text-primary md:text-5xl">
-              AskKeeper
+              Ask Keeper
             </h1>
             <p className="mt-3 text-lg text-secondary-foreground/80">
-              Get help, report a problem, or share an idea.
+              Ask a question, report a problem, share an idea, or read the
+              basics.
             </p>
             <p className="mt-2 max-w-2xl text-base text-muted-foreground">
               Your messages are sent to Keeper’s AI help service. Never include
@@ -225,19 +240,31 @@ export default function AskKeeper() {
           </Button>
         </div>
 
+        <nav
+          aria-label="Help options"
+          className="mb-6 flex flex-wrap gap-x-6 gap-y-3 text-base font-semibold text-primary"
+        >
+          <a href="#ask-question" className="underline underline-offset-4">
+            Ask a Question
+          </a>
+          <a href="#guide" className="underline underline-offset-4">
+            Read the Basics
+          </a>
+        </nav>
+
         <details className="mb-6 rounded-lg border border-primary/10 bg-card p-5">
           <summary className="cursor-pointer font-semibold text-primary">
-            Before you use AskKeeper
+            Before you use Ask Keeper
           </summary>
           <div className="mt-4 space-y-3 text-base leading-relaxed text-secondary-foreground/80">
             <p>
-              AskKeeper uses the same AI-assisted help service as the Keeper
+              Ask Keeper uses the same AI-assisted help service as the Keeper
               app. It can answer questions and draft bug reports or feature
               requests. It cannot access your wallet, view your keys or sign
               transactions.
             </p>
             <p>
-              AskKeeper may be incorrect or incomplete. Verify important wallet
+              Ask Keeper may be incorrect or incomplete. Verify important wallet
               and recovery actions carefully.
             </p>
             <p>
@@ -284,7 +311,7 @@ export default function AskKeeper() {
           )}
           <div
             role="log"
-            aria-label="AskKeeper conversation"
+            aria-label="Ask Keeper conversation"
             aria-live="polite"
             aria-relevant="additions"
             className="space-y-5"
@@ -295,7 +322,7 @@ export default function AskKeeper() {
                 className={`max-w-[94%] rounded-xl px-5 py-4 text-base leading-relaxed sm:max-w-[88%] ${message.role === "user" ? "ml-auto bg-primary text-primary-foreground" : "border border-primary/10 bg-background text-foreground"}`}
               >
                 <p className="mb-2 text-sm font-semibold">
-                  {message.role === "user" ? "You" : "AskKeeper"}
+                  {message.role === "user" ? "You" : "Ask Keeper"}
                 </p>
                 <p className="whitespace-pre-wrap break-words [overflow-wrap:anywhere]">
                   {message.text}
@@ -321,7 +348,7 @@ export default function AskKeeper() {
           </div>
           {sending && (
             <p role="status" className="mt-5 text-base text-muted-foreground">
-              Keeper is typing…
+              Ask Keeper is responding…
             </p>
           )}
           {escalation && (
@@ -406,7 +433,7 @@ export default function AskKeeper() {
                 <>
                   <p className="rounded-lg border border-primary/15 bg-primary/5 p-4 text-base">
                     This report will be publicly visible on GitHub. Do not
-                    confirm if it contains sensitive information; ask AskKeeper
+                    confirm if it contains sensitive information; ask Ask Keeper
                     to revise it first.
                   </p>
                   <div className="flex flex-col gap-3 sm:flex-row">
@@ -434,7 +461,8 @@ export default function AskKeeper() {
           )}
 
           <form
-            className="mt-8 space-y-4 border-t border-primary/10 pt-6"
+            id="ask-question"
+            className="mt-8 scroll-mt-28 space-y-4 border-t border-primary/10 pt-6"
             onSubmit={event => {
               event.preventDefault();
               void sendMessage();
@@ -496,16 +524,8 @@ export default function AskKeeper() {
             </div>
           </form>
         </div>
-        <p className="mt-6 text-center text-base text-muted-foreground">
-          Prefer a guide?{" "}
-          <Link
-            href="/learn"
-            className="text-primary underline underline-offset-4"
-          >
-            Learn about self-custody, multisig and backups.
-          </Link>
-        </p>
       </div>
+      <KeeperGuide />
     </section>
   );
 }

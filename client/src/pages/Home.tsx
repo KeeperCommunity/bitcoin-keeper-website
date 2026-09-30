@@ -52,7 +52,7 @@ const checkItems = [
   "UX/UI designed for an intuitive and effortless experience",
   "Cross-compatible with other bitcoin wallets",
   "Adaptable to suit your specific needs",
-  "AI-assisted help with AskKeeper",
+  "AI-assisted help with Ask Keeper",
 ];
 
 const walletFeatures = [
@@ -327,7 +327,7 @@ export default function Home() {
           <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-[60%_40%]">
             <div>
               <SectionHeading
-                title="AskKeeper"
+                title="Ask Keeper"
                 copy="Get help, report a problem or share an idea with the same AI-assisted help service available in the Keeper app."
               />
               <div className="space-y-5">
@@ -342,7 +342,7 @@ export default function Home() {
                 ))}
               </div>
               <Button asChild className="mt-9 h-auto rounded-[4px] bg-[#2d6759] px-8 py-5 text-[17px] font-semibold text-white hover:bg-[#245348]">
-                <Link href="/ask-keeper"><ArrowRight className="h-4 w-4" /> AskKeeper</Link>
+                <Link href="/ask-keeper"><ArrowRight className="h-4 w-4" /> Ask Keeper</Link>
               </Button>
             </div>
             <div className="rounded-2xl border border-primary/10 bg-card p-8 text-center md:p-12">
@@ -443,9 +443,9 @@ export default function Home() {
             </div>
             <div className="rounded-[4px] bg-background p-8 text-center">
               <h3 className="font-serif text-[26px] font-semibold text-primary">Can't find an answer?</h3>
-              <p className="mt-4 text-[18px] text-secondary-foreground/80">AskKeeper helps with questions about Keeper, problems and ideas.</p>
+              <p className="mt-4 text-[18px] text-secondary-foreground/80">Ask Keeper helps with questions about Keeper, problems and ideas.</p>
               <Button asChild className="mt-6 h-auto rounded-[4px] bg-[#2d6759] px-7 py-4 text-[17px] font-semibold text-white hover:bg-[#245348]">
-                <Link href="/ask-keeper">AskKeeper <ArrowRight className="h-4 w-4" /></Link>
+                <Link href="/ask-keeper">Ask Keeper <ArrowRight className="h-4 w-4" /></Link>
               </Button>
             </div>
           </div>
