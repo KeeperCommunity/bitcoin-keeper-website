@@ -146,7 +146,7 @@ export default function Home() {
                 <a href="https://github.com/bithyve/keeper-desktop/releases/" target="_blank" rel="noopener noreferrer">
                   <img src={assets.desktopBadge} alt="Desktop App" className="h-[52px] w-auto" />
                 </a>
-                <a href="https://github.com/bithyve/bitcoin-keeper/releases/" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/KeeperCommunity/bitcoin-keeper/releases/" target="_blank" rel="noopener noreferrer">
                   <img src={assets.apkBadge} alt="PGP Signed APK" className="h-[52px] w-auto" />
                 </a>
               </div>
@@ -360,7 +360,7 @@ export default function Home() {
                 Use a mix of hardware wallets and software. Change keys and key types effortlessly. Recreate wallets in other apps. Guide your heirs with our extensive in app directions and prompt.
               </p>
               <Button asChild className="mt-8 h-auto rounded-[4px] bg-[#2d6759] px-8 py-5 text-[17px] font-semibold text-white hover:bg-[#245348]">
-                <a href="https://github.com/bithyve/bitcoin-keeper/releases/" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/KeeperCommunity/bitcoin-keeper/releases/" target="_blank" rel="noopener noreferrer">
                   Download PGP Signed APK <ArrowRight className="h-4 w-4" />
                 </a>
               </Button>
@@ -411,7 +411,7 @@ export default function Home() {
             If you want to support future development, you can tip the developer(s) who built the features directly inside the app.
           </p>
           <Button asChild className="mt-8 h-auto rounded-[4px] bg-[#2d6759] px-8 py-5 text-[17px] font-semibold text-white hover:bg-[#245348]">
-            <a href="https://github.com/bithyve/bitcoin-keeper/releases/" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/KeeperCommunity/bitcoin-keeper/releases/" target="_blank" rel="noopener noreferrer">
               <ArrowRight className="h-4 w-4" /> Support Development
             </a>
           </Button>
