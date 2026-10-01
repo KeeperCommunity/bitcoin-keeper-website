@@ -13,6 +13,11 @@
       "headers": { "Location": "/ask-keeper" }
     },
     {
+      "src": "/hc(/.*)?",
+      "status": 308,
+      "headers": { "Location": "https://www.bitcoinkeeper.app/ask-keeper" }
+    },
+    {
       "src": "/(features|team|private|ask-keeper|privacy-policy|terms-of-service)/?",
       "dest": "/$1/index.html"
     },
