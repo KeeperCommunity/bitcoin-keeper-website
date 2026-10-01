@@ -33,27 +33,27 @@ export default function TermsOfService() {
         <section className="space-y-4">
           <h2 className="font-serif text-2xl font-bold text-primary">2. Supported Digital Assets</h2>
           <p>
-            Our Services, including any Wallet or Vault, are for use with Bitcoin (BTC) and USDT (TRC-20) only. We do not guarantee support for any fork, airdrop or other coins except the one(s) supported as per the consensus mechanism followed by our node. We assume no responsibility or liability in connection with any attempt to use your Wallet for digital assets that we do not support.
+            Our Services, including any Wallet, are for use with Bitcoin (BTC) and USDT (TRC-20) only. We do not guarantee support for any fork, airdrop or other coins except the one(s) supported as per the consensus mechanism followed by our node. We assume no responsibility or liability in connection with any attempt to use your Wallet for digital assets that we do not support.
           </p>
         </section>
 
         <section className="space-y-4">
-          <h2 className="font-serif text-2xl font-bold text-primary">3. Responsibility for Passcodes, Recovery Phrase and Authentication</h2>
+          <h2 className="font-serif text-2xl font-bold text-primary">3. Responsibility for Passcodes, Recovery Key and Authentication</h2>
           <p>
-            Our Services provide a number of ways for you to secure your Wallet and Vault and help ensure you, and only you, are able to access and transact through them. These features include shares, mnemonics, personal identification numbers (Passcodes), multi-sig, among other features.
+            Our Services provide a number of ways for you to secure your Wallet and help ensure you, and only you, are able to access and transact through it. These features include your Recovery Key, passcode, and multi-key signing, among others.
           </p>
           <p className="font-semibold text-primary">
-            We do not store or have access to your Recovery Phrase, Passcodes or Private Keys. It is your responsibility to ensure that your Recovery Phrase are stored securely. In case you lose your Recovery Phrase for whatever reason, BitHyve will not be able to recover them for you.
+            We do not store or have access to your Recovery Key or passcode. An optional Server Key is an independent, server-side signer in a Multi-Key Wallet; it cannot spend your bitcoin alone. It is your responsibility to keep your Recovery Key secure. If you lose your Recovery Key, BitHyve cannot recover it for you.
           </p>
           <p>
-            It is your responsibility to carefully guard your Recovery Phrase, Passcodes, multi-sig setup pins and backups, and any other means we may provide for you to secure and access your Wallet & Vault. If you forget or lose your means of backup and/or authentication, BitHyve has no way to recover them for you and you may permanently lose access to bitcoin you have stored.
+            It is your responsibility to carefully guard your Recovery Key, passcode, signer backups, Wallet Configuration Files, and any other means you use to secure and access your Wallet. If you forget or lose the information needed to recover or sign for your Wallet, BitHyve may be unable to restore your access and you may permanently lose access to your bitcoin.
           </p>
         </section>
 
         <section className="space-y-4">
           <h2 className="font-serif text-2xl font-bold text-primary">4. Recovery Feature</h2>
           <p>
-            We may provide a recovery feature to help protect you from loss of access to bitcoin though, should our Services become unavailable. Any such feature will not be available to you if you have not secured your Recovery Phrases and various other backup methods as described above.
+            Your 12-word Recovery Key can restore Keeper, including wallet configurations, when a matching encrypted app backup is available. An exported Wallet Configuration File is an independent recovery option. External hardware signers and their secrets require their own backups. You may be unable to restore previously added app data if the matching encrypted app backup is unavailable.
           </p>
         </section>
 
