@@ -22,6 +22,10 @@ async function startServer() {
     res.redirect(308, "/ask-keeper");
   });
 
+  app.get(["/hc", "/hc/*"], (_req, res) => {
+    res.redirect(308, "https://www.bitcoinkeeper.app/ask-keeper");
+  });
+
   // Known pages are prerendered directories. Return a real 404 for other paths.
   app.get("*", (_req, res) => {
     res.status(404).sendFile(path.join(staticPath, "404.html"));
