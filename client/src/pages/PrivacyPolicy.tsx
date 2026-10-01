@@ -25,6 +25,9 @@ export default function PrivacyPolicy() {
             Any information that you share with us as part of user support, including your phone number, telegram handles, etc., will only be used in-so-far as it helps address the specific issue you need help with.
           </p>
           <p>
+            If you request Keeper Private through our website, the email address you submit is sent through FormSubmit to keeper@bithyve.com so our team can respond to your inquiry.
+          </p>
+          <p>
             If you use an app store to download Keeper, please note that you would be having a separate relationship with the store. BitHyve neither solicits nor receives individual users’ information who use the app stores to access our app.
           </p>
         </section>
@@ -103,7 +106,7 @@ export default function PrivacyPolicy() {
         <section className="space-y-4">
           <h2 className="font-serif text-2xl font-bold text-primary">9. Third Party integrations</h2>
           <p>
-            If you choose Bitcoin Keeper to use external services like buying bitcoin, or backing up your vaults on cloud services, any information you enter in the app are directly passed on to the service provider on your consent. We do not store any of it.
+            If you choose to use external services through Bitcoin Keeper, such as buying bitcoin or backing up Wallet Configuration Files to your chosen cloud service, information you provide to those services is shared with the provider with your consent.
           </p>
         </section>
 

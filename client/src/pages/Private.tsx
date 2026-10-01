@@ -7,6 +7,7 @@ import { toast } from "sonner";
 export default function Private() {
   const [email, setEmail] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const privateAssets = {
     hero: "/wp-content/uploads/2025/04/banner-image-1-1.png",
@@ -21,11 +22,33 @@ export default function Private() {
     ],
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!email) return;
-    setIsSubmitted(true);
-    toast.success("Thank you! Our concierge team will reach out shortly.");
+    if (!email.trim() || isSubmitting) return;
+    if (new FormData(e.currentTarget).get("_honey")) return;
+
+    setIsSubmitting(true);
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/keeper@bithyve.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          email: email.trim(),
+          _subject: "Keeper Private website inquiry",
+          _captcha: "false",
+          _honey: "",
+          message: "Please contact me about Keeper Private.",
+        }),
+      });
+      const result = await response.json();
+      if (!response.ok || result.success !== "true") throw new Error("Submission failed");
+      setIsSubmitted(true);
+      toast.success("Request sent. Our team will contact you soon.");
+    } catch {
+      toast.error("We couldn't send your request. Please email keeper@bithyve.com.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const services = [
@@ -171,6 +194,7 @@ export default function Private() {
 
               {!isSubmitted ? (
                 <form onSubmit={handleSubmit} className="flex max-w-md flex-col gap-3 sm:flex-row">
+                  <input type="text" name="_honey" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
                   <div className="relative flex-grow">
                     <Mail className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[#b9b2a2]" />
                     <Input
@@ -182,14 +206,14 @@ export default function Private() {
                       className="h-12 border-[#3e524d] bg-[#16201e] pl-10 text-[#f6f3ea] placeholder:text-[#8f968f]"
                     />
                   </div>
-                  <Button type="submit" className="h-12 bg-[#A58969] px-6 font-semibold text-[#111614] hover:bg-[#b59c7f]">
-                    Submit
+                  <Button type="submit" disabled={isSubmitting} className="h-12 bg-[#A58969] px-6 font-semibold text-[#111614] hover:bg-[#b59c7f]">
+                    {isSubmitting ? "Sending…" : "Submit"}
                   </Button>
                 </form>
               ) : (
                 <div className="flex max-w-md items-center gap-3 rounded-xl border border-[#A58969]/35 bg-[#A58969]/15 p-4 text-[#efe4d3]">
                   <Check className="h-5 w-5 shrink-0 text-[#d8bf9d]" />
-                  <span className="text-sm font-semibold">Request received. Our team will contact you soon.</span>
+                  <span className="text-sm font-semibold">Request sent. Our team will contact you soon.</span>
                 </div>
               )}
 
