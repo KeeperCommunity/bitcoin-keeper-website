@@ -16,28 +16,28 @@ export default function Features() {
   const sections: FeatureSection[] = [
     {
       title: "Wallets",
-      subtitle: "Use different wallet types and templates to stack sats as per your specific needs",
+      subtitle: "Choose the wallet setup that fits how you manage your signing keys",
       icon: Shield,
       features: [
         {
-          title: "Single-sig hot wallet",
-          description: "Easy to use wallets for small amounts and regular spends",
+          title: "Single-Key Wallet",
+          description: "One key is needed to spend; a simpler setup for everyday use",
         },
         {
-          title: "Single-sig cold wallet",
-          description: "Wallets using 1 cold stored key providing an added layer of protection",
+          title: "2 of 3 Multi-Key Wallet",
+          description: "Any 2 of 3 keys are needed to spend",
         },
         {
-          title: "Multisig wallet",
-          description: "Use multiple keys to sign a single transaction thus avoiding single points of failure",
+          title: "3 of 5 Multi-Key Wallet",
+          description: "Any 3 of 5 keys are needed to spend",
         },
         {
-          title: "Collaborative Custody Wallet",
-          description: "Use with trusted contacts who act as decision makers for spends",
+          title: "Collaborative Wallet",
+          description: "A fixed 2 of 3 setup for shared control with trusted people",
         },
         {
-          title: "Custom Multisig",
-          description: "Decide your preferred M-of-N configuration for your specific needs",
+          title: "Custom Setup",
+          description: "Choose your own supported multi-key configuration",
         },
       ],
     },
@@ -69,32 +69,32 @@ export default function Features() {
       ],
     },
     {
-      title: "Special Keys",
-      subtitle: "Certain keys have been built in for you to use for particular situations. Set these up when the need arises",
+      title: "Assisted Keys",
+      subtitle: "Optional signers and delayed-access paths for supported wallet setups",
       icon: Layers,
       features: [
         {
           title: "Server Key",
-          description: "Key hosted on Keeper's servers. Setup spending thresholds for specific usecases",
+          description: "A Keeper-assisted signer in a Multi-Key Wallet. Keeper cannot spend with it alone",
         },
         {
           title: "Inheritance Key",
-          description: "A time-delayed miniscript enabled key that acts as an extra key for your multisig setup",
+          description: "A delayed access path for an heir or trusted party under your wallet rules",
         },
         {
           title: "Emergency Key",
-          description: "Made available as an additional key for special spending conditions",
+          description: "A separate delayed recovery path if normal access is unavailable",
         },
       ],
     },
     {
       title: "Software Keys",
-      subtitle: "You don't need to rely on a hardware device to setup a multisig. Use some of software keys for the purpose.",
+      subtitle: "Software signers can be part of a supported wallet setup",
       icon: Smartphone,
       features: [
         {
           title: "Mobile Key",
-          description: "The key of the first hot wallet that's setup when you setup the app",
+          description: "A key from another Keeper phone that can act as a signer",
         },
         {
           title: "External Key",
@@ -117,11 +117,11 @@ export default function Features() {
       features: [
         {
           title: "Recovery Key",
-          description: "Your app's master backup. Write down the seed words to backup the entire app",
+          description: "Your 12-word key restores Keeper from its encrypted app backup, including wallet configurations",
         },
         {
           title: "Wallet Configuration File",
-          description: "The backup for each of your multisig wallet",
+          description: "Records a Multi-Key Wallet's setup without containing its private keys",
         },
         {
           title: "Key Backup",

@@ -21,7 +21,7 @@ const guideSections = [
     label: "Multisig",
     title: "What is a multisig wallet?",
     paragraphs: [
-      "A multisig wallet requires several keys to authorize spending. In a 2-of-3 setup, 2 of 3 keys are needed to spend. This can reduce dependence on a single key, but you must maintain the required keys and the wallet’s configuration backup.",
+      "A multisig wallet requires several keys to authorize spending. In a 2-of-3 setup, 2 of 3 keys are needed to spend. This can reduce dependence on a single key, but you must maintain the required keys. An exported configuration is an independent recovery option if the app backup is unavailable.",
     ],
   },
   {
@@ -41,12 +41,12 @@ const guideSections = [
       {
         title: "Recovery Key",
         description:
-          "Your 12-word backup for restoring Keeper. Keep it offline and never share it. It does not replace every signing device’s own backup.",
+          "Your 12-word key restores Keeper from its encrypted app backup, including wallet configurations. Keep it offline and never share it.",
       },
       {
         title: "Wallet Configuration File",
         description:
-          "Helps recreate a wallet setup, but contains no private keys. Keep the configuration for your Multi-Key Wallets.",
+          "A separate export of a Multi-Key Wallet setup for independent recovery or use in compatible software. It contains no private keys.",
       },
       {
         title: "Signing-device backups",
@@ -71,6 +71,33 @@ const guideSections = [
     title: "Can I recreate a Keeper wallet in another app?",
     paragraphs: [
       "A Wallet Configuration File can recreate the wallet setup in compatible software. You still need the required signing keys to spend. Importing a wallet adds it to an app; it does not move bitcoin. Exportable configurations help you plan access beyond one app or device.",
+    ],
+  },
+  {
+    id: "archived-wallets",
+    label: "Archived wallets",
+    title: "What happens when wallet keys or rules change?",
+    paragraphs: [
+      "Keeper retains the previous configuration as an Archived Wallet after key or scheme changes. To use it, unarchive it first. Bitcoin sent to an old address still belongs to that older configuration and requires its original signing-key quorum.",
+      "Keep old keys and configuration backups until you have accounted for funds and any future payments to old addresses. Hiding a wallet is a separate visibility setting.",
+    ],
+  },
+  {
+    id: "inheritance-and-emergency-keys",
+    label: "Delayed access",
+    title: "How are Inheritance Key, Emergency Key and Wallet Timelock different?",
+    paragraphs: [
+      "An Inheritance Key can give an heir or trusted party a delayed access path. An Emergency Key is a separate delayed recovery path when normal access is unavailable. Wallet Timelock prevents spending until the selected time has passed.",
+      "These rules depend on the wallet setup. Changing a rule later may require a new wallet and moving bitcoin. Key access does not establish legal ownership.",
+    ],
+  },
+  {
+    id: "usdt-wallet",
+    label: "USDT",
+    title: "Does Keeper support USDT?",
+    paragraphs: [
+      "The mobile app supports a separate USDT Wallet for USDT TRC-20 on Tron. Buy USDT via Ramp is no longer available. A USDT Wallet does not inherit a bitcoin Multi-Key Wallet’s signing rules.",
+      "Check the displayed USDT receive address and network before sending. Imported USDT wallets can have separate recovery material; keep its backup. Gas-free transfers do not require you to hold TRX, but transfer and activation fees can apply.",
     ],
   },
   {
