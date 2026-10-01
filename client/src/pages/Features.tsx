@@ -52,11 +52,11 @@ export default function Features() {
         },
         {
           title: "Share Key",
-          description: "Share a key to help a trusted contact setup a multisig wallet",
+          description: "Share public signer details to help a trusted contact set up a Multi-Key Wallet",
         },
         {
           title: "Change Keys",
-          description: "Change a compromised or lost key and refresh your multisig quorum",
+          description: "Replace a lost or compromised key; keep the resulting Archived Wallet configuration",
         },
         {
           title: "Change Signer Type",
@@ -98,7 +98,7 @@ export default function Features() {
         },
         {
           title: "External Key",
-          description: "A key shared with you by a trusted contact",
+          description: "Public signer details from a trusted contact for a shared wallet",
         },
         {
           title: "Seed Key",
