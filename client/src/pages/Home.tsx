@@ -26,7 +26,7 @@ const assets = {
   ],
   specializedPhone: `${WP}/2025/07/Wallets-Landing-6.png`,
   specialIcons: [
-    `${WP}/2025/02/Inheritance-Wallets.svg`,
+    `${WP}/2025/02/Multisig-Templates.svg`,
     `${WP}/2025/02/Other-Wallets.png`,
     `${WP}/2025/02/Time-locked-wallets.svg`,
     `${WP}/2025/02/Inheritance-Key.svg`,
@@ -71,12 +71,12 @@ const walletFeatures = [
 ];
 
 const specialVaults = [
-  ["Inheritance Wallets", "Special wallets for you to bequeath your bitcoin"],
-  ["Collaborative Wallets", "Create wallets with friends, family and business associates"],
-  ["Time locked wallets", "To be unlocked and accessed when you think the time is right"],
-  ["Inheritance Key", "A special miniscript enabled key that unlocks after a specific time has elapsed "],
-  ["Server Key", "Use for a range of bitcoin spends as decided by you"],
-  ["Emergency Key", "Made available as an additional key for special spending conditions"],
+  ["Multi-Key Wallet", "Choose a 2 of 3, 3 of 5, or custom setup with multiple signing keys."],
+  ["Collaborative Wallet", "Share control using Keeper's fixed 2 of 3 wallet setup."],
+  ["Wallet Timelock", "Prevent spending until the selected time has passed."],
+  ["Inheritance Key", "Add a delayed access path for an heir or trusted party."],
+  ["Server Key", "A Keeper-assisted signer in a Multi-Key Wallet. Keeper cannot spend with it alone."],
+  ["Emergency Key", "Add a delayed recovery path if normal access is unavailable."],
 ];
 
 const askKeeperItems = [
@@ -173,10 +173,10 @@ export default function Home() {
             <div className="space-y-4">
               {[
                 "Easy multisig creation and management",
-                "Keys stored only on your devices",
-                "Server-assisted recovery (optional)",
+                "Manage your own signing keys and backups",
+                "Assisted Server Backup (optional)",
                 "Inheritance and emergency access tools",
-                "Timelocked and duress configurations",
+                "Wallet Timelock and hidden-wallet options",
                 "Open-source and community-maintained",
               ].map((item) => (
                 <div key={item} className="flex items-start gap-3 border-b border-primary/10 pb-4 text-[16px] text-secondary-foreground/80">
@@ -195,7 +195,7 @@ export default function Home() {
           <div>
             <SectionHeading
               title="Generational Wealth Management"
-              copy="Bitcoin Keeper is designed with a focus on flexibility and reliability. Our holistic approach ensures your Bitcoin stays secure and accessible for generations."
+              copy="Bitcoin Keeper helps you plan long-term access to your bitcoin, including the keys, wallet configuration and instructions your heirs may need."
             />
             <div className="space-y-4">
               {checkItems.map((item) => (
@@ -276,8 +276,8 @@ export default function Home() {
         <div className="container max-w-6xl">
           <SectionHeading
             centered
-            title="Specialized Vaults"
-            copy="Use Keeper's advanced capabilities to manage your sats with different stakeholders. Plan your inheritance with your estate planner or create a collaborative custody with your significant other."
+            title="Wallets and enhanced options"
+            copy="Choose a wallet setup, then review optional signing and delayed-access features for your recovery plan."
           />
           <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-[1fr_auto_1fr]">
             <div className="space-y-8">
@@ -289,7 +289,7 @@ export default function Home() {
                 </div>
               ))}
             </div>
-            <img src={assets.specializedPhone} alt="Specialized Vaults" className="mx-auto max-h-[620px] w-auto" />
+            <img src={assets.specializedPhone} alt="Bitcoin Keeper wallet screen" className="mx-auto max-h-[620px] w-auto" />
             <div className="space-y-8">
               {specialVaults.slice(3).map(([title, desc], i) => {
                 const index = i + 3;
