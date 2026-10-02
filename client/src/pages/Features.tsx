@@ -1,4 +1,4 @@
-import { CheckCircle2, Key, Layers, RefreshCw, Shield, Smartphone } from "lucide-react";
+import { ArrowRight, CheckCircle2, Key, Layers, RefreshCw, Shield, Smartphone } from "lucide-react";
 
 interface FeatureCard {
   title: string;
@@ -136,7 +136,7 @@ export default function Features() {
       <section className="container mb-16 max-w-4xl space-y-5 text-center md:mb-20">
         <h1 className="font-serif text-[42px] font-semibold leading-[1.15] text-primary md:text-[64px]">Features</h1>
         <p className="mx-auto max-w-2xl text-[18px] leading-[1.55] text-secondary-foreground/80">
-          Bitcoin Keeper has several useful features hidden one layer that help you stack sats better and longer. Get to know the hidden gems here.
+          Explore wallet setups, signing keys, backups and delayed-access options. Choose a setup you can understand, back up and maintain.
         </p>
       </section>
 
@@ -185,6 +185,26 @@ export default function Features() {
           );
         })}
       </div>
+
+      <section className="container mt-24 max-w-5xl" aria-labelledby="features-next-step">
+        <div className="rounded-2xl border border-primary/10 bg-card p-6 text-center shadow-[0_10px_30px_rgba(30,53,47,0.03)] md:p-10">
+          <h2 id="features-next-step" className="font-serif text-2xl font-semibold text-primary md:text-3xl">
+            Plan your setup before moving funds
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-secondary-foreground/80">
+            Learn what each backup does and how delayed-access options differ. Keep the required signing-key backups and wallet configuration for any Multi-Key Wallet.
+          </p>
+          <div className="mt-7 flex flex-wrap items-center justify-center gap-4">
+            <a href="/ask-keeper#backup-and-recovery" className="inline-flex min-h-12 items-center gap-2 rounded-lg bg-primary px-5 py-3 font-semibold text-primary-foreground hover:bg-primary/90 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">
+              Read the backup guide <ArrowRight className="h-4 w-4" />
+            </a>
+            <a href="/ask-keeper#inheritance-and-emergency-keys" className="inline-flex min-h-12 items-center gap-2 rounded-lg border border-primary/20 px-5 py-3 font-semibold text-primary hover:bg-primary/5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">
+              Compare delayed access <ArrowRight className="h-4 w-4" />
+            </a>
+          </div>
+          <p className="mt-7 text-sm text-muted-foreground">Ready to try Keeper? <a className="font-semibold text-primary underline underline-offset-4" href="https://apps.apple.com/us/app/bitcoin-keeper/id1545535925">Get for iOS</a> or <a className="font-semibold text-primary underline underline-offset-4" href="https://play.google.com/store/apps/details?id=io.hexawallet.bitcoinkeeper">get for Android</a>.</p>
+        </div>
+      </section>
     </div>
   );
 }
