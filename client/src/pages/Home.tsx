@@ -58,7 +58,7 @@ const checkItems = [
 const walletFeatures = [
   {
     title: "Easy Wallet Setup",
-    desc: "Preset key configuations to create multikey wallets",
+    desc: "Preset key configurations for Multi-Key Wallets",
   },
   {
     title: "Key Management",
@@ -85,7 +85,7 @@ const askKeeperItems = [
   ["Support resources", "Find relevant guides and reach the Keeper community when you need more help."],
 ];
 
-const keyItems = ["User- friendly", "No lock-ins", "Tools and Tips ", "Cost optimized"];
+const keyItems = ["User-friendly", "No lock-ins", "Tools and Tips ", "Cost optimized"];
 
 const testimonials = [
   ["Rob | Bitsaga.be", "@BitsagaRob", "Keeper is a great multi-sig app! Try it out if you want to explore an upgrade into multi-sig, it's perfect for playing around and getting comfortable. Simple yet feature rich."],
@@ -457,7 +457,7 @@ export default function Home() {
           <img src={assets.logo} alt="" className="mx-auto mb-6 h-[84px] w-[84px]" />
           <h2 className="font-serif text-[35px] font-semibold text-primary md:text-[44px]">Download Bitcoin Keeper today</h2>
           <p className="mx-auto mt-5 max-w-2xl text-[18px] leading-[1.55] text-secondary-foreground/80">
-            Setup wallets, get ample help, manage keys effectively and plan your inheritance. All enabled via an intuitive dseign.
+            Set up wallets, manage keys and plan long-term access with help when you need it.
           </p>
           <div className="mt-8 flex justify-center">
             <StoreBadges />
