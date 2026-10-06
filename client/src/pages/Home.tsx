@@ -143,7 +143,7 @@ export default function Home() {
             <div id="download" className="mt-8 space-y-5">
               <StoreBadges />
               <div className="flex flex-wrap items-center gap-4">
-                <a href="https://github.com/bithyve/keeper-desktop/releases/" target="_blank" rel="noopener noreferrer">
+                <a href="/desktop" target="_blank" rel="noopener noreferrer">
                   <img src={assets.desktopBadge} alt="Desktop App" className="h-[52px] w-auto" />
                 </a>
                 <a href="https://github.com/KeeperCommunity/bitcoin-keeper/releases/" target="_blank" rel="noopener noreferrer">
@@ -314,7 +314,7 @@ export default function Home() {
           </div>
           <div className="flex justify-center md:justify-end">
             <Button asChild className="h-auto rounded-[4px] bg-[#f3efe3] px-8 py-5 text-[17px] font-semibold text-[#1f2d29] hover:bg-[#e9e2d2]">
-              <a href="https://github.com/bithyve/keeper-desktop/releases/" target="_blank" rel="noopener noreferrer">
+              <a href="/desktop" target="_blank" rel="noopener noreferrer">
                 <Download className="h-4 w-4" /> Download the Desktop App
               </a>
             </Button>
