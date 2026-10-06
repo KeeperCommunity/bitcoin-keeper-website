@@ -83,6 +83,18 @@ const guideSections = [
     ],
   },
   {
+    id: "dust-protection",
+    label: "Dust Protection",
+    title: "How does Dust Protection work?",
+    paragraphs: [
+      "A dust attack can use a small bitcoin payment to try to link your addresses when you spend it with other coins. Keeper checks for potential dust using the payment amount and address history. Not every small incoming payment is dust. A full Dust Report also checks past transactions and can flag larger coins linked to potential dust activity.",
+      "Keeper marks flagged coins Do Not Spend and excludes them from automatic coin selection. In Manage Coins, a Do Not Spend coin carries a label. If you choose one manually for a transaction, Keeper warns that spending it with other coins may reduce privacy.",
+      "To review a wallet, open its Wallet Settings and choose Dust Report, then Run Report. The report shows current Do Not Spend coins, Active Dust and Manually Marked Coins, Linked Coins and Past Dust Spends. You can also open Manage Coins, select a coin and choose Mark Spendable if you believe it was flagged by mistake, or Mark Do Not Spend to exclude a coin yourself. Review a coin’s history before changing its status.",
+      "Donate Dust is optional. From Manage Coins or a Dust Report with current Do Not Spend coins, it uses all current Do Not Spend coins in that wallet, including coins you marked manually and larger linked coins. Network fees are paid from those coins; the remainder is donated to Keeper. If their total cannot cover the fee and a donation amount, the transaction cannot proceed. Review the total and privacy impact before continuing.",
+      "Donating multiple coins together can link their addresses on-chain. It does not erase existing on-chain links or guarantee anonymity. Keeping them Do Not Spend is also an option.",
+    ],
+  },
+  {
     id: "inheritance-and-emergency-keys",
     label: "Delayed access",
     title: "How are Inheritance Key, Emergency Key and Wallet Timelock different?",
@@ -129,7 +141,7 @@ export default function KeeperGuide() {
           backups you need to understand.
         </p>
         <p className="text-sm text-muted-foreground">
-          Published <time dateTime="2026-09-30">30 September 2026</time>
+          Updated <time dateTime="2026-10-06">6 October 2026</time>
         </p>
         <a href="#ask-question" className={linkClassName}>
           Ask a Question
