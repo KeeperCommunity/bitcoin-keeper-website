@@ -129,6 +129,17 @@ export default function Features() {
         },
       ],
     },
+    {
+      title: "Privacy and coin control",
+      subtitle: "Review coins before combining them in a bitcoin transaction",
+      icon: Shield,
+      features: [
+        {
+          title: "Dust Protection",
+          description: "Keeper flags potential dust activity and linked coins, marks affected coins Do Not Spend, and lets you review them in Dust Report. You can change a coin’s status or choose to donate all current Do Not Spend coins.",
+        },
+      ],
+    },
   ];
 
   return (
@@ -200,6 +211,9 @@ export default function Features() {
             </a>
             <a href="/ask-keeper#inheritance-and-emergency-keys" className="inline-flex min-h-12 items-center gap-2 rounded-lg border border-primary/20 px-5 py-3 font-semibold text-primary hover:bg-primary/5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">
               Compare delayed access <ArrowRight className="h-4 w-4" />
+            </a>
+            <a href="/ask-keeper#dust-protection" className="inline-flex min-h-12 items-center gap-2 rounded-lg border border-primary/20 px-5 py-3 font-semibold text-primary hover:bg-primary/5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">
+              Read about Dust Protection <ArrowRight className="h-4 w-4" />
             </a>
           </div>
           <p className="mt-7 text-sm text-muted-foreground">Ready to try Keeper? <a className="font-semibold text-primary underline underline-offset-4" href="https://apps.apple.com/us/app/bitcoin-keeper/id1545535925">Get for iOS</a> or <a className="font-semibold text-primary underline underline-offset-4" href="https://play.google.com/store/apps/details?id=io.hexawallet.bitcoinkeeper">get for Android</a>.</p>
