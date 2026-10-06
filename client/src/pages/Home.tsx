@@ -407,15 +407,15 @@ export default function Home() {
         <div className="container max-w-4xl">
           <h2 className="font-serif text-[35px] font-semibold text-primary md:text-[44px]">Free and community-supported</h2>
           <p className="mx-auto mt-5 max-w-2xl text-[18px] leading-[1.55] text-secondary-foreground/80">
-            Keeper used to offer subscription features.
+            Keeper is free and maintained by independent contributors.
             <br />
-            Today, all functionality is free and available to everyone.
+            Voluntary tips and grants help fund ongoing development and maintenance.
             <br />
-            If you want to support future development, you can tip the developer(s) who built the features directly inside the app.
+            To tip in the app, open Settings and tap “Support the Developers.” Every feature remains available whether or not you tip.
           </p>
           <Button asChild className="mt-8 h-auto rounded-[4px] bg-[#2d6759] px-8 py-5 text-[17px] font-semibold text-white hover:bg-[#245348]">
-            <a href="https://github.com/KeeperCommunity/bitcoin-keeper/releases/" target="_blank" rel="noopener noreferrer">
-              <ArrowRight className="h-4 w-4" /> Support Development
+            <a href="#get-keeper">
+              <ArrowRight className="h-4 w-4" /> Get Keeper to support development
             </a>
           </Button>
         </div>
@@ -452,7 +452,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-background py-20 text-center md:py-24">
+      <section id="get-keeper" className="bg-background py-20 text-center md:py-24">
         <div className="container max-w-4xl">
           <img src={assets.logo} alt="" className="mx-auto mb-6 h-[84px] w-[84px]" />
           <h2 className="font-serif text-[35px] font-semibold text-primary md:text-[44px]">Download Bitcoin Keeper today</h2>
