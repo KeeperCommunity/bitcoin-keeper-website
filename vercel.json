@@ -18,6 +18,11 @@
       "headers": { "Location": "https://www.bitcoinkeeper.app/ask-keeper" }
     },
     {
+      "src": "/desktop/?",
+      "status": 308,
+      "headers": { "Location": "https://github.com/KeeperCommunity/keeper-desktop/releases" }
+    },
+    {
       "src": "/(features|team|private|ask-keeper|privacy-policy|terms-of-service)/?",
       "dest": "/$1/index.html"
     },
