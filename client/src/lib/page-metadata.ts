@@ -25,10 +25,10 @@ export const PAGE_METADATA: Record<string, PageMetadataEntry> = {
     description:
       "Ask Keeper for help, report a problem or share an idea. Read the basics of bitcoin self-custody, multisig, hardware wallets, backups and recovery.",
   },
-  "/team": {
-    title: "People behind Keeper — Bitcoin Keeper",
+  "/contributors": {
+    title: "Contributors — Bitcoin Keeper",
     description:
-      "Meet the bitcoiners, contributors and advisers behind Bitcoin Keeper and its community-led approach to open-source self-custody.",
+      "See how independent contributors maintain Bitcoin Keeper and how to contribute to the free, open-source, community-run project.",
   },
   "/private": {
     title: "Keeper Private — Bitcoin Keeper",
