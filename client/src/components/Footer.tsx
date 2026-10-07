@@ -3,8 +3,6 @@ import {
   Shield,
   Twitter,
   Youtube,
-  Linkedin,
-  BookOpen,
   Send,
   Github,
 } from "lucide-react";
@@ -23,12 +21,6 @@ export default function Footer() {
       href: "https://www.youtube.com/channel/UCMqDNxbz16w8pxpmsa6s8GQ",
       icon: Youtube,
     },
-    {
-      name: "Linkedin",
-      href: "https://www.linkedin.com/company/bithyve/",
-      icon: Linkedin,
-    },
-    { name: "Medium", href: "https://medium.com/bitbees", icon: BookOpen },
     { name: "Telegram", href: "https://t.me/bitcoinkeeper", icon: Send },
     {
       name: "Github",
@@ -134,14 +126,14 @@ export default function Footer() {
                 Terms of Service
               </Link>
               <span className="font-sans text-xs text-primary-foreground/50 mt-2">
-                Contact support:
+                Need help?
               </span>
-              <a
-                href="mailto:keeper@bithyve.com"
+              <Link
+                href="/ask-keeper"
                 className="font-sans text-sm font-semibold text-accent transition-colors hover:underline"
               >
-                keeper@bithyve.com
-              </a>
+                Ask Keeper
+              </Link>
             </nav>
           </div>
         </div>
@@ -151,7 +143,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <p className="font-sans text-xs text-primary-foreground/50">
-            &copy; {currentYear} Bitcoin Keeper community. Open-source and community-run.
+            Bitcoin Keeper was originally developed by BitHyve UK Limited. It is now a free, open-source, community-run project maintained by independent contributors.
           </p>
           <p className="font-sans text-[10px] tracking-wide text-primary-foreground/40 uppercase">
             Sovereign Self-Custody
