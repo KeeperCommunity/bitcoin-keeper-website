@@ -30,12 +30,6 @@ export const PAGE_METADATA: Record<string, PageMetadataEntry> = {
     description:
       "See how independent contributors maintain Bitcoin Keeper and how to contribute to the free, open-source, community-run project.",
   },
-  "/private": {
-    title: "Keeper Private — Bitcoin Keeper",
-    description:
-      "Legacy Keeper Private information retained during the transition to a community-run project.",
-    indexable: false,
-  },
   "/privacy-policy": {
     title: "Privacy Policy — Bitcoin Keeper",
     description:
