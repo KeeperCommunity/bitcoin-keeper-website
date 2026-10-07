@@ -6,7 +6,7 @@ export default function PrivacyPolicy() {
           Privacy Policy
         </h1>
         <p className="font-sans text-lg text-muted-foreground leading-relaxed">
-          Bitcoin Keeper is an application developed by BitHyve UK Limited. This privacy policy is in accordance with the EU General Data Protection Regulation (GDPR) and explains how the app stores any data generated when you use the Bitcoin Keeper Mobile Application.
+          Bitcoin Keeper was originally developed by BitHyve UK Limited. It is now a free, open-source, community-run project maintained by independent contributors. In this policy, “we” means the contributors and service operators maintaining Keeper. This policy explains how data is handled when you use the Bitcoin Keeper application and supporting services.
         </p>
       </div>
 
@@ -19,16 +19,16 @@ export default function PrivacyPolicy() {
             We try to ensure that we collect little to no data in the first place. In certain cases we may require your phone number, and email address. You could always choose to not give us the information and are encouraged to use pseudonymous phone numbers and email ids. Bitcoin addresses and keys are stored directly on your device. Information about your bitcoin addresses, balances belonging to bitcoin addresses, and your bitcoin transactions are recorded on the public Bitcoin blockchain.
           </p>
           <p>
-            Any information related to your public keys and key secrets transmitted via the Bitcoin Keeper relayer is encrypted using the industry standard encryption algorithm AES-256 and no party, including BitHyve, can ever access it.
+            Any information related to your public keys and key secrets transmitted via the Bitcoin Keeper relayer is encrypted using the industry standard encryption algorithm AES-256 and is not accessible to Keeper contributors or service operators.
           </p>
           <p>
             Any information that you share with us as part of user support, including your phone number, telegram handles, etc., will only be used in-so-far as it helps address the specific issue you need help with.
           </p>
           <p>
-            If you request Keeper Private through our website, the email address you submit is sent through FormSubmit to keeper@bithyve.com so our team can respond to your inquiry.
+            If you request Keeper Private through our website, the email address you submit is currently sent through FormSubmit to keeper@bithyve.com, a legacy support mailbox being used during the transition, so the team can respond to your inquiry.
           </p>
           <p>
-            If you use an app store to download Keeper, please note that you would be having a separate relationship with the store. BitHyve neither solicits nor receives individual users’ information who use the app stores to access our app.
+            If you use an app store to download Keeper, you have a separate relationship with that store. Keeper does not receive individual user information from the app stores simply because you download the application.
           </p>
         </section>
 
@@ -120,10 +120,11 @@ export default function PrivacyPolicy() {
         <section className="space-y-4">
           <h2 className="font-serif text-2xl font-bold text-primary">11. How to contact us</h2>
           <p>
-            If you have any questions about the privacy policy or would like clarifications about the same, please reach out via{" "}
+            If you have questions about this privacy policy, use Ask Keeper or email{" "}
             <a href="mailto:keeper@bithyve.com" className="text-accent font-semibold hover:underline">
               keeper@bithyve.com
-            </a>
+            </a>{" "}
+            while the support mailbox is being transitioned.
           </p>
         </section>
       </div>
