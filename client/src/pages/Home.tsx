@@ -147,9 +147,9 @@ export default function Home() {
               Bitcoin Keeper
             </h1>
             <p className="mt-5 max-w-[600px] text-[20px] leading-[1.4] text-white">
-              A community-led, open-source wallet for secure multisig self-custody.
+              A community-led, open-source bitcoin wallet for self-custody, from simple wallets to multisig, recovery and inheritance.
               <br />
-              No accounts. No subscriptions. Your keys, your bitcoin — always.
+              No subscriptions. Your keys, your bitcoin — always.
             </p>
             <div id="download" className="mt-8 space-y-5">
               <StoreBadges />
@@ -371,7 +371,7 @@ export default function Home() {
               <h3 className="font-serif text-[30px] font-semibold text-primary">Comprehensive Key Management</h3>
               <p className="mt-4 text-center text-[18px] text-secondary-foreground/80 md:text-left">Built to avoid single points of failure, including ourselves</p>
               <p className="mt-5 text-[16px] leading-[1.55] text-secondary-foreground/80">
-                Use a mix of hardware wallets and software. Change keys and key types effortlessly. Recreate wallets in other apps. Guide your heirs with our extensive in app directions and prompt.
+                Use a mix of hardware and software signing devices. Replace keys when needed, recreate supported wallets in compatible software and keep recovery and inheritance plans independent of one device.
               </p>
               <Button asChild className="mt-8 h-auto rounded-[4px] bg-[#2d6759] px-8 py-5 text-[17px] font-semibold text-white hover:bg-[#245348]">
                 <a href="https://github.com/KeeperCommunity/bitcoin-keeper/releases/" target="_blank" rel="noopener noreferrer">
@@ -399,7 +399,7 @@ export default function Home() {
 
       <section className="bg-white py-20 md:py-24">
         <div className="container max-w-6xl">
-          <SectionHeading centered title="The Community Speaks" copy="The community loves us for our product philosophy and feature implementation prowess. You don’t have to take our word for it!" />
+          <SectionHeading centered title="The Community Speaks" copy="What bitcoiners have said about using Keeper for self-custody and multisig." />
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {testimonials.map(([name, handle, quote]) => (
               <div key={name} className="rounded-[4px] bg-white p-7 shadow-[0_12px_28px_rgba(30,53,47,0.08)]">
