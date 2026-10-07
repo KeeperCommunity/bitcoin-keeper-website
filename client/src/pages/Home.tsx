@@ -1,4 +1,5 @@
 import { ArrowRight, Check, Copy, Download, MessageSquare } from "lucide-react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 
@@ -128,6 +129,14 @@ function SectionHeading({ title, copy, centered = false }: { title: string; copy
 }
 
 export default function Home() {
+  const [addressCopied, setAddressCopied] = useState(false);
+
+  const copySupportAddress = async () => {
+    await navigator.clipboard?.writeText(SUPPORT_ADDRESS);
+    setAddressCopied(true);
+    window.setTimeout(() => setAddressCopied(false), 1800);
+  };
+
   return (
     <div className="bg-background text-foreground">
       <section className="relative overflow-hidden bg-[linear-gradient(180deg,#1e352f_0%,#596f66_100%)] pt-24 text-white md:pt-36">
@@ -405,43 +414,41 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="support-keeper" className="bg-background py-20 md:py-24">
+      <section id="support-keeper" className="scroll-mt-24 bg-background py-20 md:py-24">
         <div className="container max-w-5xl">
-          <div className="grid grid-cols-1 items-center gap-10 rounded-[8px] border border-primary/10 bg-white p-8 md:grid-cols-[1fr_auto] md:p-12">
-            <div>
-              <h2 className="font-serif text-[35px] font-semibold text-primary md:text-[44px]">Support Keeper</h2>
+          <div className="grid grid-cols-1 gap-10 rounded-[12px] border border-primary/10 bg-white p-8 shadow-[0_16px_40px_rgba(30,53,47,0.06)] md:grid-cols-[1fr_320px] md:p-12">
+            <div className="flex flex-col justify-center">
+              <p className="text-xs font-semibold uppercase tracking-[2px] text-[#2d6759]">Community supported</p>
+              <h2 className="mt-3 font-serif text-[35px] font-semibold text-primary md:text-[44px]">Support Keeper</h2>
               <p className="mt-5 max-w-2xl text-[18px] leading-[1.55] text-secondary-foreground/80">
                 Keeper is free, open-source and community-run. Voluntary tips and grants help fund development, maintenance and security work.
               </p>
-              <p className="mt-4 text-[16px] leading-[1.55] text-secondary-foreground/80">
-                Send bitcoin to the address below, or open Settings → Support the Developers in the Keeper app.
+              <p className="mt-5 text-[16px] leading-[1.55] text-secondary-foreground/75">
+                You can also support from inside Keeper. Open Settings and tap Support the Developers.
               </p>
-              <div className="mt-6 rounded-[6px] bg-background p-4">
-                <p className="text-xs font-semibold uppercase tracking-wide text-secondary-foreground/60">Bitcoin address</p>
-                <p className="mt-2 break-all font-mono text-[14px] text-primary">{SUPPORT_ADDRESS}</p>
-              </div>
-              <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-                <Button asChild className="h-auto rounded-[4px] bg-[#2d6759] px-7 py-4 text-[16px] font-semibold text-white hover:bg-[#245348]">
-                  <a href={SUPPORT_URI}>
-                    <ArrowRight className="h-4 w-4" /> Open in wallet
-                  </a>
-                </Button>
-                <Button
-                  type="button"
-                  variant="outline"
-                  className="h-auto rounded-[4px] px-7 py-4 text-[16px] font-semibold"
-                  onClick={() => navigator.clipboard?.writeText(SUPPORT_ADDRESS)}
-                >
-                  <Copy className="h-4 w-4" /> Copy address
-                </Button>
-              </div>
-              <p className="mt-4 text-sm text-secondary-foreground/60">
+              <p className="mt-6 text-sm text-secondary-foreground/55">
                 Keeper does not charge a donation fee. Your wallet may charge the normal Bitcoin network fee.
               </p>
             </div>
-            <div className="justify-self-center rounded-[8px] bg-white p-4 shadow-[0_12px_28px_rgba(30,53,47,0.08)]">
-              <img src="/support-bitcoin-qr.svg" alt="QR code for the Bitcoin Keeper support address" className="h-[220px] w-[220px]" />
-              <p className="mt-3 text-center text-xs text-secondary-foreground/60">Scan with a Bitcoin wallet</p>
+
+            <div className="rounded-[10px] border border-primary/10 bg-background p-5 text-center">
+              <div className="mx-auto w-fit rounded-[8px] bg-white p-3 shadow-[0_8px_22px_rgba(30,53,47,0.08)]">
+                <img src="/support-bitcoin-qr.svg" alt="QR code for the Bitcoin Keeper support address" className="h-[210px] w-[210px]" />
+              </div>
+              <p className="mt-4 text-sm font-semibold text-primary">Scan with a Bitcoin wallet</p>
+              <p className="mx-auto mt-3 max-w-[260px] break-all font-mono text-[12px] leading-relaxed text-secondary-foreground/65">
+                {SUPPORT_ADDRESS}
+              </p>
+              <Button
+                type="button"
+                className="mt-5 h-auto w-full rounded-[4px] bg-[#2d6759] px-6 py-4 text-[16px] font-semibold text-white hover:bg-[#245348]"
+                onClick={copySupportAddress}
+              >
+                <Copy className="h-4 w-4" /> {addressCopied ? "Copied" : "Copy address"}
+              </Button>
+              <a href={SUPPORT_URI} className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline">
+                Open in wallet <ArrowRight className="h-3.5 w-3.5" />
+              </a>
             </div>
           </div>
         </div>
