@@ -11,10 +11,10 @@ export default function Header() {
   const navItems = [
     { name: "Home", href: "/" },
     { name: "Features", href: "/features" },
-    { name: "Private", href: "/private" },
     { name: "Ask Keeper", href: "/ask-keeper" },
-    { name: "Support", href: "/#support-keeper" },
   ];
+
+  const supportHref = location === "/" ? "#support-keeper" : "/#support-keeper";
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-white/15 bg-[#2f554f]">
@@ -50,6 +50,12 @@ export default function Header() {
               </Link>
             );
           })}
+          <a
+            href={supportHref}
+            className="relative flex items-center px-[22px] font-sans text-[12px] font-normal uppercase tracking-[2.2px] text-white/95 transition-colors hover:text-white"
+          >
+            SUPPORT
+          </a>
         </nav>
 
         {/* Mobile Menu Toggle */}
@@ -90,6 +96,13 @@ export default function Header() {
                 </Link>
               );
             })}
+            <a
+              href={supportHref}
+              onClick={() => setMobileMenuOpen(false)}
+              className="font-sans text-sm uppercase tracking-[2.2px] text-white/80 transition-colors hover:text-white"
+            >
+              SUPPORT
+            </a>
           </nav>
         </div>
       )}
