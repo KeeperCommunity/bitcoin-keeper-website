@@ -151,8 +151,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <p className="font-sans text-xs text-primary-foreground/50">
-            &copy; {currentYear} BitHyve UK Limited. All Rights Reserved.
-            Bitcoin Keeper is developed by BitHyve UK Limited.
+            &copy; {currentYear} Bitcoin Keeper community. Open-source and community-run.
           </p>
           <p className="font-sans text-[10px] tracking-wide text-primary-foreground/40 uppercase">
             Sovereign Self-Custody
