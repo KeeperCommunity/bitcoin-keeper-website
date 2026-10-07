@@ -87,11 +87,17 @@ export default function Footer() {
                 Features
               </Link>
               <Link
-                href="/team"
+                href="/contributors"
                 className="font-sans text-sm text-primary-foreground/70 transition-colors hover:text-accent"
               >
-                Team
+                Contributors
               </Link>
+              <a
+                href="/#support-keeper"
+                className="font-sans text-sm text-primary-foreground/70 transition-colors hover:text-accent"
+              >
+                Support
+              </a>
               <Link
                 href="/private"
                 className="font-sans text-sm text-primary-foreground/70 transition-colors hover:text-accent"
