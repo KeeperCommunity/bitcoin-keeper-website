@@ -16,7 +16,7 @@ export default function PrivacyPolicy() {
         <section className="space-y-4">
           <h2 className="font-serif text-2xl font-bold text-primary">1. What data do we collect?</h2>
           <p>
-            We try to ensure that we collect little to no data in the first place. In certain cases we may require your phone number, and email address. You could always choose to not give us the information and are encouraged to use pseudonymous phone numbers and email ids. Bitcoin addresses and keys are stored directly on your device. Information about your bitcoin addresses, balances belonging to bitcoin addresses, and your bitcoin transactions are recorded on the public Bitcoin blockchain.
+            We try to collect as little personal data as possible. Some optional services or notifications may require information such as an email address or phone number. Bitcoin addresses and keys are stored on your device. Information about bitcoin addresses, balances and transactions is recorded on the public Bitcoin blockchain.
           </p>
           <p>
             Any information related to your public keys and key secrets transmitted via the Bitcoin Keeper relayer is encrypted using the industry standard encryption algorithm AES-256 and is not accessible to Keeper contributors or service operators.
@@ -34,7 +34,7 @@ export default function PrivacyPolicy() {
           <p className="font-semibold text-primary">Purposes for Data Collection:</p>
           <ul className="list-disc pl-6 space-y-2">
             <li>Sending alerts and notifications about Inheritance Key requests.</li>
-            <li>Notifying users of account activity.</li>
+            <li>Notifying users of relevant app or wallet activity.</li>
             <li>Contacting users for customer support purposes if needed.</li>
             <li>Legal Basis for Processing: Consent</li>
             <li>Data Retention Period: Until the user chooses to delete the data.</li>
@@ -65,7 +65,7 @@ export default function PrivacyPolicy() {
         <section className="space-y-4">
           <h2 className="font-serif text-2xl font-bold text-primary">5. Records of Consent</h2>
           <p>
-            We document user consent for processing email addresses and phone numbers. Consent records are maintained in our backend systems and linked to user accounts, including:
+            Where consent is required for processing email addresses or phone numbers, relevant consent records may be maintained in backend systems, including:
           </p>
           <ul className="list-disc pl-6 space-y-2">
             <li>Consent mechanism (e.g., checkboxes, user account settings)</li>
@@ -103,14 +103,14 @@ export default function PrivacyPolicy() {
         <section className="space-y-4">
           <h2 className="font-serif text-2xl font-bold text-primary">9. Third Party integrations</h2>
           <p>
-            If you choose to use external services through Bitcoin Keeper, such as buying bitcoin or backing up Wallet Configuration Files to your chosen cloud service, information you provide to those services is shared with the provider with your consent.
+            If you choose to use an external service through Bitcoin Keeper, such as backing up Wallet Configuration Files to your chosen cloud service, information you provide to that service is handled by the provider under its own terms and privacy practices.
           </p>
         </section>
 
         <section className="space-y-4">
           <h2 className="font-serif text-2xl font-bold text-primary">10. Changes to our privacy policy</h2>
           <p>
-            We may change this Privacy Policy from time to time. Changes to this Privacy Policy will be notified to you by revising the date at the bottom of the policy and we will provide additional notice by adding a statement on our official twitter account.
+            We may change this Privacy Policy from time to time. Material changes may also be announced through Keeper's public project channels.
           </p>
         </section>
 
