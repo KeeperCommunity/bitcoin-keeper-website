@@ -33,7 +33,8 @@ export const PAGE_METADATA: Record<string, PageMetadataEntry> = {
   "/private": {
     title: "Keeper Private — Bitcoin Keeper",
     description:
-      "Explore Keeper Private’s consultative services for bitcoin self-custody, secure storage and inheritance planning.",
+      "Legacy Keeper Private information retained during the transition to a community-run project.",
+    indexable: false,
   },
   "/privacy-policy": {
     title: "Privacy Policy — Bitcoin Keeper",

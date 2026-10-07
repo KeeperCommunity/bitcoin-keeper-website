@@ -97,12 +97,6 @@ export default function Footer() {
                 Support
               </a>
               <Link
-                href="/private"
-                className="font-sans text-sm text-primary-foreground/70 transition-colors hover:text-accent"
-              >
-                Private
-              </Link>
-              <Link
                 href="/ask-keeper"
                 className="font-sans text-sm text-primary-foreground/70 transition-colors hover:text-accent"
               >

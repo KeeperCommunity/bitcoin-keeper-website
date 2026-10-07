@@ -365,10 +365,12 @@ export default function AskKeeper() {
                 </p>
               ) : escalation === "developer_email" ? (
                 <a
-                  href="mailto:hello@bithyve.com"
+                  href="https://github.com/KeeperCommunity/bitcoin-keeper/issues"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-primary underline"
                 >
-                  Email the Keeper team
+                  Open Keeper GitHub issues
                 </a>
               ) : (
                 <a
