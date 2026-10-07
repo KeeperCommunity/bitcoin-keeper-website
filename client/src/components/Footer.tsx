@@ -42,9 +42,9 @@ export default function Footer() {
               </span>
             </div>
             <p className="max-w-md font-sans text-sm leading-relaxed text-primary-foreground/70">
-              A community-led, open-source wallet for secure multisig
-              self-custody. No accounts. No subscriptions. Your keys, your
-              bitcoin — always.
+              A community-run, open-source bitcoin wallet for self-custody,
+              multisig, recovery and long-term access. No subscriptions. Your
+              keys, your bitcoin — always.
             </p>
             {/* Social Icons */}
             <div className="flex flex-wrap gap-3.5 mt-2">
