@@ -7,7 +7,6 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import Features from "./pages/Features";
 import Team from "./pages/Team";
-import Private from "./pages/Private";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import Header from "./components/Header";
@@ -28,7 +27,9 @@ function Router() {
           <Route path="/team">
             <Redirect to="/contributors" />
           </Route>
-          <Route path="/private" component={Private} />
+          <Route path="/private">
+            <Redirect to="/" />
+          </Route>
           <Route path="/learn">
             <Redirect
               to={`/ask-keeper${typeof window === "undefined" ? "" : window.location.hash}`}
