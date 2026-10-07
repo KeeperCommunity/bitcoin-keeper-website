@@ -48,7 +48,7 @@ export default function Team() {
         <div className="mt-12 rounded-[8px] bg-primary p-8 text-center text-primary-foreground md:p-12">
           <h2 className="font-serif text-[30px] font-semibold text-white">See who is contributing</h2>
           <p className="mx-auto mt-4 max-w-2xl text-[17px] leading-relaxed text-white/80">
-            Contributions are visible in the public repository. There are no investor, executive or employee categories on this page.
+            Contributions and project activity are visible in the public repository. The contributor list changes as people join, review, test and maintain the project.
           </p>
           <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
             <Button asChild className="h-auto rounded-[4px] bg-white px-7 py-4 text-[16px] font-semibold text-primary hover:bg-white/90">
