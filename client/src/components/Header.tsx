@@ -42,6 +42,7 @@ export default function Header() {
         {/* Logo */}
         <Link
           href="/"
+          onClick={goHome}
           className="flex items-center transition-opacity hover:opacity-90"
         >
           <img
