@@ -10,14 +10,14 @@ export interface PageMetadataEntry {
 // Add a route here when its page is added to App.tsx.
 export const PAGE_METADATA: Record<string, PageMetadataEntry> = {
   "/": {
-    title: "Bitcoin Keeper — Free, open-source multisig self-custody",
+    title: "Bitcoin Keeper — Open-source bitcoin self-custody",
     description:
-      "Bitcoin Keeper is a free, community-led, open-source bitcoin wallet for multisig self-custody, hardware-wallet coordination and inheritance planning.",
+      "Bitcoin Keeper is a free, community-run, open-source bitcoin wallet for self-custody, multisig, signing devices, recovery and inheritance planning.",
   },
   "/features": {
-    title: "Wallets, keys and multisig features — Bitcoin Keeper",
+    title: "Wallets, keys, recovery and privacy features — Bitcoin Keeper",
     description:
-      "Explore Bitcoin Keeper’s wallet types, hardware-wallet support, key management, coin control and tools for long-term bitcoin self-custody.",
+      "Explore Bitcoin Keeper’s wallets, signing devices, backups, health checks, delayed-access tools, coin control and open interoperability.",
   },
   "/ask-keeper": {
     title:
