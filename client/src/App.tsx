@@ -24,7 +24,10 @@ function Router() {
         <Switch>
           <Route path="/" component={Home} />
           <Route path="/features" component={Features} />
-          <Route path="/team" component={Team} />
+          <Route path="/contributors" component={Team} />
+          <Route path="/team">
+            <Redirect to="/contributors" />
+          </Route>
           <Route path="/private" component={Private} />
           <Route path="/learn">
             <Redirect
