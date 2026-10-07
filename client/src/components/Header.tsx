@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 
 const logoUrl = "/wp-content/uploads/2025/01/Vector.svg";
@@ -7,6 +7,26 @@ const logoUrl = "/wp-content/uploads/2025/01/Vector.svg";
 export default function Header() {
   const [location] = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeHash, setActiveHash] = useState("");
+
+  useEffect(() => {
+    const syncHash = () => setActiveHash(window.location.hash);
+    syncHash();
+    window.addEventListener("hashchange", syncHash);
+    return () => window.removeEventListener("hashchange", syncHash);
+  }, [location]);
+
+  const supportActive = location === "/" && activeHash === "#support-keeper";
+
+  const goHome = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    if (location !== "/") return;
+
+    event.preventDefault();
+    window.history.replaceState(null, "", "/");
+    setActiveHash("");
+    setMobileMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   const navItems = [
     { name: "Home", href: "/" },
@@ -34,11 +54,15 @@ export default function Header() {
         {/* Desktop Navigation */}
         <nav className="hidden items-stretch self-stretch lg:flex">
           {navItems.map(item => {
-            const isActive = location === item.href;
+            const isActive =
+              item.name === "Home"
+                ? location === "/" && !supportActive
+                : location === item.href;
             return (
               <Link
                 key={item.name}
                 href={item.href}
+                onClick={item.name === "Home" ? goHome : undefined}
                 className={`relative flex items-center px-[22px] font-sans text-[12px] font-normal uppercase tracking-[2.2px] transition-colors hover:text-white ${
                   isActive ? "text-white" : "text-white/95"
                 }`}
@@ -52,9 +76,14 @@ export default function Header() {
           })}
           <a
             href={supportHref}
-            className="relative flex items-center px-[22px] font-sans text-[12px] font-normal uppercase tracking-[2.2px] text-white/95 transition-colors hover:text-white"
+            className={`relative flex items-center px-[22px] font-sans text-[12px] font-normal uppercase tracking-[2.2px] transition-colors hover:text-white ${
+              supportActive ? "text-white" : "text-white/95"
+            }`}
           >
             SUPPORT
+            {supportActive && (
+              <span className="absolute bottom-0 left-[18px] right-[18px] h-[3px] bg-white" />
+            )}
           </a>
         </nav>
 
@@ -82,12 +111,15 @@ export default function Header() {
         >
           <nav className="flex flex-col gap-5">
             {navItems.map(item => {
-              const isActive = location === item.href;
+              const isActive =
+                item.name === "Home"
+                  ? location === "/" && !supportActive
+                  : location === item.href;
               return (
                 <Link
                   key={item.name}
                   href={item.href}
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={item.name === "Home" ? goHome : () => setMobileMenuOpen(false)}
                   className={`font-sans text-sm uppercase tracking-[2.2px] transition-colors ${
                     isActive ? "text-white" : "text-white/80"
                   }`}
@@ -99,7 +131,9 @@ export default function Header() {
             <a
               href={supportHref}
               onClick={() => setMobileMenuOpen(false)}
-              className="font-sans text-sm uppercase tracking-[2.2px] text-white/80 transition-colors hover:text-white"
+              className={`font-sans text-sm uppercase tracking-[2.2px] transition-colors hover:text-white ${
+                supportActive ? "text-white" : "text-white/80"
+              }`}
             >
               SUPPORT
             </a>
