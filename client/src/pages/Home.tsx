@@ -1,8 +1,10 @@
-import { ArrowRight, Check, Download, MessageSquare } from "lucide-react";
+import { ArrowRight, Check, Copy, Download, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 
 const WP = "/wp-content/uploads";
+const SUPPORT_ADDRESS = "bc1q3usznw6j7j32hrq594zshmrkueccvqaene9d84";
+const SUPPORT_URI = `bitcoin:${SUPPORT_ADDRESS}?label=Bitcoin%20Keeper`;
 
 const assets = {
   logo: `${WP}/2025/04/500x500.png`,
@@ -98,7 +100,7 @@ const testimonials = [
 const faqs = [
   ["Why is everything free now?", "Keeper transitioned to a community-led model. All features are available to everyone without a subscription."],
   ["Who maintains Keeper now?", "Independent developers and contributors. You can view them on GitHub."],
-  ["How can I support the project?", "You can tip the developer(s) inside the app."],
+  ["How can I support the project?", "You can send bitcoin directly from the Support Keeper section below or tip from Settings → Support the Developers in the app."],
   ["Is Keeper regulated?", "Keeper is non-custodial and does not provide financial services."],
   ["Do you store my keys?", "Your hardware and software signing keys stay with their signing devices. The optional Server Key is stored on a Keeper server and works as one key in a Multi-Key Wallet. Keeper cannot spend your bitcoin with this key alone."],
 ];
@@ -403,21 +405,45 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-background py-20 text-center md:py-24">
-        <div className="container max-w-4xl">
-          <h2 className="font-serif text-[35px] font-semibold text-primary md:text-[44px]">Free and community-supported</h2>
-          <p className="mx-auto mt-5 max-w-2xl text-[18px] leading-[1.55] text-secondary-foreground/80">
-            Keeper is free and maintained by independent contributors.
-            <br />
-            Voluntary tips and grants help fund ongoing development and maintenance.
-            <br />
-            To tip in the app, open Settings and tap “Support the Developers.” Every feature remains available whether or not you tip.
-          </p>
-          <Button asChild className="mt-8 h-auto rounded-[4px] bg-[#2d6759] px-8 py-5 text-[17px] font-semibold text-white hover:bg-[#245348]">
-            <a href="#get-keeper">
-              <ArrowRight className="h-4 w-4" /> Get Keeper to support development
-            </a>
-          </Button>
+      <section id="support-keeper" className="bg-background py-20 md:py-24">
+        <div className="container max-w-5xl">
+          <div className="grid grid-cols-1 items-center gap-10 rounded-[8px] border border-primary/10 bg-white p-8 md:grid-cols-[1fr_auto] md:p-12">
+            <div>
+              <h2 className="font-serif text-[35px] font-semibold text-primary md:text-[44px]">Support Keeper</h2>
+              <p className="mt-5 max-w-2xl text-[18px] leading-[1.55] text-secondary-foreground/80">
+                Keeper is free, open-source and community-run. Voluntary tips and grants help fund development, maintenance and security work.
+              </p>
+              <p className="mt-4 text-[16px] leading-[1.55] text-secondary-foreground/80">
+                Send bitcoin to the address below, or open Settings → Support the Developers in the Keeper app.
+              </p>
+              <div className="mt-6 rounded-[6px] bg-background p-4">
+                <p className="text-xs font-semibold uppercase tracking-wide text-secondary-foreground/60">Bitcoin address</p>
+                <p className="mt-2 break-all font-mono text-[14px] text-primary">{SUPPORT_ADDRESS}</p>
+              </div>
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                <Button asChild className="h-auto rounded-[4px] bg-[#2d6759] px-7 py-4 text-[16px] font-semibold text-white hover:bg-[#245348]">
+                  <a href={SUPPORT_URI}>
+                    <ArrowRight className="h-4 w-4" /> Open in wallet
+                  </a>
+                </Button>
+                <Button
+                  type="button"
+                  variant="outline"
+                  className="h-auto rounded-[4px] px-7 py-4 text-[16px] font-semibold"
+                  onClick={() => navigator.clipboard?.writeText(SUPPORT_ADDRESS)}
+                >
+                  <Copy className="h-4 w-4" /> Copy address
+                </Button>
+              </div>
+              <p className="mt-4 text-sm text-secondary-foreground/60">
+                Keeper does not charge a donation fee. Your wallet may charge the normal Bitcoin network fee.
+              </p>
+            </div>
+            <div className="justify-self-center rounded-[8px] bg-white p-4 shadow-[0_12px_28px_rgba(30,53,47,0.08)]">
+              <img src="/support-bitcoin-qr.svg" alt="QR code for the Bitcoin Keeper support address" className="h-[220px] w-[220px]" />
+              <p className="mt-3 text-center text-xs text-secondary-foreground/60">Scan with a Bitcoin wallet</p>
+            </div>
+          </div>
         </div>
       </section>
 
