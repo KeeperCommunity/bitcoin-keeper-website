@@ -25,9 +25,6 @@ export default function PrivacyPolicy() {
             Any information that you share with us as part of user support, including your phone number, telegram handles, etc., will only be used in-so-far as it helps address the specific issue you need help with.
           </p>
           <p>
-            If you request Keeper Private through our website, the email address you submit is currently sent through FormSubmit to keeper@bithyve.com, a legacy support mailbox being used during the transition, so the team can respond to your inquiry.
-          </p>
-          <p>
             If you use an app store to download Keeper, you have a separate relationship with that store. Keeper does not receive individual user information from the app stores simply because you download the application.
           </p>
         </section>
@@ -120,11 +117,7 @@ export default function PrivacyPolicy() {
         <section className="space-y-4">
           <h2 className="font-serif text-2xl font-bold text-primary">11. How to contact us</h2>
           <p>
-            If you have questions about this privacy policy, use Ask Keeper or email{" "}
-            <a href="mailto:keeper@bithyve.com" className="text-accent font-semibold hover:underline">
-              keeper@bithyve.com
-            </a>{" "}
-            while the support mailbox is being transitioned.
+            If you have questions about this privacy policy, use Ask Keeper. Do not include wallet secrets or sensitive personal information in support requests.
           </p>
         </section>
       </div>
