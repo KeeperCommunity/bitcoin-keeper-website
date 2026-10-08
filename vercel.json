@@ -3,6 +3,14 @@
   "installCommand": "pnpm install --frozen-lockfile",
   "buildCommand": "pnpm run build",
   "outputDirectory": "dist/public",
+  "headers": [
+    {
+      "source": "/.well-known/apple-app-site-association",
+      "headers": [
+        { "key": "Content-Type", "value": "application/json" }
+      ]
+    }
+  ],
   "routes": [
     {
       "handle": "filesystem"
@@ -35,6 +43,10 @@
     {
       "src": "/(features|contributors|ask-keeper|privacy-policy|terms-of-service)/?",
       "dest": "/$1/index.html"
+    },
+    {
+      "src": "^/app/(dev|prod)/remote/[0-9a-f]{24}/?$",
+      "dest": "/remote-link.html"
     },
     {
       "src": "/",
