@@ -1,0 +1,15 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "Y5TCB759QL.io.hexawallet.keeper",
+        "paths": ["/app/prod/remote/*"]
+      },
+      {
+        "appID": "Y5TCB759QL.io.hexawallet.hexakeeper.dev",
+        "paths": ["/app/dev/remote/*"]
+      }
+    ]
+  }
+}
