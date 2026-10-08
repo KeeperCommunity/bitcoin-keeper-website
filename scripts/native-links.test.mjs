@@ -23,20 +23,33 @@ test("iOS association maps production and development links to their apps", () =
   );
 });
 
-test("Android association matches the published 2.6.3 APK certificate", () => {
+test("Android association matches the published APK and development debug certificates", () => {
   // Source: https://github.com/KeeperCommunity/bitcoin-keeper/releases/tag/v2.6.3
   // The release APK SHA-256 is a20d934ebd80ece779d3c171c7906bb4aff010337989ec1b826cab55c50eba46.
   // apksigner reports this package and certificate; Play Store signing must be checked separately.
-  assert.deepEqual(assetLinks, [{
-    relation: ["delegate_permission/common.handle_all_urls"],
-    target: {
-      namespace: "android_app",
-      package_name: "io.hexawallet.bitcoinkeeper",
-      sha256_cert_fingerprints: [
-        "BF:A0:23:D9:9F:AC:EB:AF:A4:A9:AF:22:B9:E4:9A:13:DB:BF:A3:EE:82:5B:E3:DA:16:CC:A9:E3:EA:1B:24:3A",
-      ],
+  // Development fingerprint: keytool on the tracked android/app/debug.keystore.
+  assert.deepEqual(assetLinks, [
+    {
+      relation: ["delegate_permission/common.handle_all_urls"],
+      target: {
+        namespace: "android_app",
+        package_name: "io.hexawallet.bitcoinkeeper",
+        sha256_cert_fingerprints: [
+          "BF:A0:23:D9:9F:AC:EB:AF:A4:A9:AF:22:B9:E4:9A:13:DB:BF:A3:EE:82:5B:E3:DA:16:CC:A9:E3:EA:1B:24:3A",
+        ],
+      },
     },
-  }]);
+    {
+      relation: ["delegate_permission/common.handle_all_urls"],
+      target: {
+        namespace: "android_app",
+        package_name: "io.hexawallet.bitcoinkeeper.development",
+        sha256_cert_fingerprints: [
+          "FA:C6:17:45:DC:09:03:78:6F:B9:ED:E6:2A:96:2B:39:9F:73:48:F0:BB:6F:89:9B:83:32:66:75:91:03:3B:9C",
+        ],
+      },
+    },
+  ]);
   assert.equal(
     config.headers.find((entry) => entry.source === "/.well-known/assetlinks.json")
       ?.headers.find((entry) => entry.key === "Content-Type")?.value,
