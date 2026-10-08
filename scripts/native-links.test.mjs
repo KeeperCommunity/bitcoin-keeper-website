@@ -6,6 +6,9 @@ const config = JSON.parse(readFileSync(new URL("../vercel.json", import.meta.url
 const association = JSON.parse(
   readFileSync(new URL("../client/public/.well-known/apple-app-site-association", import.meta.url), "utf8"),
 );
+const assetLinks = JSON.parse(
+  readFileSync(new URL("../client/public/.well-known/assetlinks.json", import.meta.url), "utf8"),
+);
 const fallback = readFileSync(new URL("../client/public/remote-link.html", import.meta.url), "utf8");
 
 test("iOS association maps production and development links to their apps", () => {
@@ -15,6 +18,27 @@ test("iOS association maps production and development links to their apps", () =
   ]);
   assert.equal(
     config.headers.find((entry) => entry.source === "/.well-known/apple-app-site-association")
+      ?.headers.find((entry) => entry.key === "Content-Type")?.value,
+    "application/json",
+  );
+});
+
+test("Android association matches the published 2.6.3 APK certificate", () => {
+  // Source: https://github.com/KeeperCommunity/bitcoin-keeper/releases/tag/v2.6.3
+  // The release APK SHA-256 is a20d934ebd80ece779d3c171c7906bb4aff010337989ec1b826cab55c50eba46.
+  // apksigner reports this package and certificate; Play Store signing must be checked separately.
+  assert.deepEqual(assetLinks, [{
+    relation: ["delegate_permission/common.handle_all_urls"],
+    target: {
+      namespace: "android_app",
+      package_name: "io.hexawallet.bitcoinkeeper",
+      sha256_cert_fingerprints: [
+        "BF:A0:23:D9:9F:AC:EB:AF:A4:A9:AF:22:B9:E4:9A:13:DB:BF:A3:EE:82:5B:E3:DA:16:CC:A9:E3:EA:1B:24:3A",
+      ],
+    },
+  }]);
+  assert.equal(
+    config.headers.find((entry) => entry.source === "/.well-known/assetlinks.json")
       ?.headers.find((entry) => entry.key === "Content-Type")?.value,
     "application/json",
   );

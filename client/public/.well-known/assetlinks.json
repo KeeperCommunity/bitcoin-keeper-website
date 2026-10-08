@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "io.hexawallet.bitcoinkeeper",
+      "sha256_cert_fingerprints": [
+        "BF:A0:23:D9:9F:AC:EB:AF:A4:A9:AF:22:B9:E4:9A:13:DB:BF:A3:EE:82:5B:E3:DA:16:CC:A9:E3:EA:1B:24:3A"
+      ]
+    }
+  }
+]
