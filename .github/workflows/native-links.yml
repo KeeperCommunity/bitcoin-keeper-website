@@ -1,0 +1,56 @@
+name: Native link associations
+
+on:
+  pull_request:
+    paths:
+      - client/public/.well-known/**
+      - client/public/remote-link.html
+      - vercel.json
+      - scripts/native-links.test.mjs
+      - scripts/android-development-association.test.mjs
+      - .github/workflows/native-links.yml
+  push:
+    branches: [main]
+    paths:
+      - client/public/.well-known/**
+      - client/public/remote-link.html
+      - vercel.json
+      - scripts/native-links.test.mjs
+      - scripts/android-development-association.test.mjs
+      - .github/workflows/native-links.yml
+
+permissions:
+  contents: read
+
+jobs:
+  native-links:
+    name: Native link source and certificate checks
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: website
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: KeeperCommunity/bitcoin-keeper
+          ref: bb66cea459fbb00ec33c5c4ebd601d07c0d7c125
+          path: keeper-android-source
+          sparse-checkout: |
+            android/app/build.gradle
+            android/app/debug.keystore
+          sparse-checkout-cone-mode: false
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+      - name: Verify native associations against the pinned mobile inputs
+        working-directory: website
+        env:
+          KEEPER_ANDROID_SOURCE: ${{ github.workspace }}/keeper-android-source
+        run: node --test scripts/native-links.test.mjs scripts/android-development-association.test.mjs

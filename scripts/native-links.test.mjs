@@ -27,6 +27,7 @@ test("Android association matches the published APK and development debug certif
   // Source: https://github.com/KeeperCommunity/bitcoin-keeper/releases/tag/v2.6.3
   // The release APK SHA-256 is a20d934ebd80ece779d3c171c7906bb4aff010337989ec1b826cab55c50eba46.
   // apksigner reports this package and certificate; Play Store signing must be checked separately.
+  // Development package: Keeper defaultConfig applicationId plus development applicationIdSuffix.
   // Development fingerprint: keytool on the tracked android/app/debug.keystore.
   assert.deepEqual(assetLinks, [
     {
@@ -43,7 +44,7 @@ test("Android association matches the published APK and development debug certif
       relation: ["delegate_permission/common.handle_all_urls"],
       target: {
         namespace: "android_app",
-        package_name: "io.hexawallet.bitcoinkeeper.development",
+        package_name: "io.hexawallet.keeper.development",
         sha256_cert_fingerprints: [
           "FA:C6:17:45:DC:09:03:78:6F:B9:ED:E6:2A:96:2B:39:9F:73:48:F0:BB:6F:89:9B:83:32:66:75:91:03:3B:9C",
         ],
