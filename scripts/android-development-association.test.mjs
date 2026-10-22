@@ -7,7 +7,7 @@ import test from "node:test";
 
 // Public R4 source already integrated in mobile PR #7045. No native build or
 // production-signing credentials are needed to check these tracked inputs.
-const keeperSourceSha = "bb66cea459fbb00ec33c5c4ebd601d07c0d7c125";
+const keeperSourceSha = "1d8a86a7462d935cbd0e28b857934b5718c152fc";
 const source = process.env.KEEPER_ANDROID_SOURCE;
 assert.ok(
   source,
@@ -42,7 +42,7 @@ const gradleBytes = readFileSync(resolve(source, "android/app/build.gradle"));
 const keystore = resolve(source, "android/app/debug.keystore");
 assert.equal(
   createHash("sha256").update(gradleBytes).digest("hex"),
-  "a5a0d18b8fb3c4fee645bb8ab4400de4cc760ab83fc7ba3b08bc4e9d807336ee"
+  "5935b7aa340c5640f52a84b700d72aab5fb2c454b2431ba50f1d9bae158aa7dc"
 );
 assert.equal(
   createHash("sha256").update(readFileSync(keystore)).digest("hex"),
@@ -78,7 +78,7 @@ function literal(text, name) {
   return match[1];
 }
 
-test("development association uses the actual mobile flavor package and debug certificate", () => {
+test("production host excludes the actual mobile development package and public debug certificate", () => {
   const defaults = section(gradle, "defaultConfig");
   const development = section(section(gradle, "productFlavors"), "development");
   assert.doesNotMatch(development, /^\s*applicationId\s/m);
@@ -114,16 +114,11 @@ test("development association uses the actual mobile flavor package and debug ce
   const developmentLinks = assetLinks.filter(entry =>
     entry.target.package_name.endsWith(".development")
   );
-  assert.deepEqual(developmentLinks, [
-    {
-      relation: ["delegate_permission/common.handle_all_urls"],
-      target: {
-        namespace: "android_app",
-        package_name: packageName,
-        sha256_cert_fingerprints: [certificate.fingerprint256],
-      },
-    },
-  ]);
+  assert.deepEqual(developmentLinks, []);
+  for (const entry of assetLinks) {
+    assert.notEqual(entry.target.package_name, packageName);
+    assert.ok(!entry.target.sha256_cert_fingerprints.includes(certificate.fingerprint256));
+  }
 
   const productionPackage = literal(
     section(section(gradle, "productFlavors"), "production"),
