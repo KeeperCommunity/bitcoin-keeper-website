@@ -5,6 +5,16 @@
   "outputDirectory": "dist/public",
   "routes": [
     {
+      "src": "^/\\.well-known/apple-app-site-association$",
+      "dest": "/.well-known/apple-app-site-association",
+      "headers": { "Content-Type": "application/json" }
+    },
+    {
+      "src": "^/\\.well-known/assetlinks\\.json$",
+      "dest": "/.well-known/assetlinks.json",
+      "headers": { "Content-Type": "application/json" }
+    },
+    {
       "handle": "filesystem"
     },
     {
@@ -35,6 +45,14 @@
     {
       "src": "/(features|contributors|ask-keeper|privacy-policy|terms-of-service)/?",
       "dest": "/$1/index.html"
+    },
+    {
+      "src": "^/app/prod/remote/[0-9a-f]{24}/?$",
+      "dest": "/remote-link.html"
+    },
+    {
+      "src": "^/app/dev/remote/[0-9a-f]{24}/?$",
+      "dest": "/remote-link-dev.html"
     },
     {
       "src": "/",
