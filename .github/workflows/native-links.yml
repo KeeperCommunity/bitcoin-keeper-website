@@ -9,6 +9,9 @@ on:
       - vercel.json
       - scripts/native-links.test.mjs
       - scripts/android-development-association.test.mjs
+      - scripts/native-links-live.mjs
+      - scripts/native-links-live.test.mjs
+      - .github/workflows/native-links-live.yml
       - .github/workflows/native-links.yml
   push:
     branches: [main]
@@ -19,6 +22,9 @@ on:
       - vercel.json
       - scripts/native-links.test.mjs
       - scripts/android-development-association.test.mjs
+      - scripts/native-links-live.mjs
+      - scripts/native-links-live.test.mjs
+      - .github/workflows/native-links-live.yml
       - .github/workflows/native-links.yml
 
 permissions:
@@ -55,4 +61,4 @@ jobs:
         working-directory: website
         env:
           KEEPER_ANDROID_SOURCE: ${{ github.workspace }}/keeper-android-source
-        run: node --test scripts/native-links.test.mjs scripts/android-development-association.test.mjs
+        run: node --test scripts/native-links.test.mjs scripts/android-development-association.test.mjs scripts/native-links-live.test.mjs
