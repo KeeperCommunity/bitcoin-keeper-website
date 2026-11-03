@@ -185,7 +185,7 @@ export default function Home() {
               {[
                 "Easy multisig creation and management",
                 "Manage your own signing keys and backups",
-                "Assisted Server Backup (optional)",
+                "Protected server backup (optional)",
                 "Inheritance and emergency access tools",
                 "Wallet Timelock and hidden-wallet options",
                 "Open-source and community-maintained",
