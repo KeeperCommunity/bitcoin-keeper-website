@@ -59,7 +59,7 @@ const guideSections = [
           "Saves wallet configuration files. It does not replace your Recovery Key or signing-device backups.",
       },
       {
-        title: "Assisted Server Backup",
+        title: "Protected server backup",
         description:
           "Backs up encrypted data using a community-run Keeper server. It is separate from Server Key and does not replace your Recovery Key.",
       },

@@ -121,7 +121,7 @@ export default function Features() {
           description: "Save Wallet Configuration Files to your chosen cloud service; it does not replace your Recovery Key",
         },
         {
-          title: "Assisted Server Backup",
+          title: "Protected server backup",
           description: "Back up encrypted app data using a community-run Keeper server; separate from Server Key",
         },
         {
